@@ -1,0 +1,1255 @@
+<style>
+/* Custom fonts*/
+
+@font-face {
+	font-family: 'Satisfy';
+	src: url("https://www.jennycraig.com.au/statics/fonts/Satisfy.eot?#iefix") format("embedded-opentype"), url("https://www.jennycraig.com.au/statics/fonts/Satisfy.woff") format("woff"), url("https://www.jennycraig.com.au/statics/fonts/Satisfy.ttf") format("truetype"), url("https://www.jennycraig.com.au/statics/fonts/Satisfy.svg#Satisfy") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HelveticaNeueLTStd-Roman';
+	src: url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.eot?#iefix") format("embedded-opentype"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.otf") format("opentype"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.woff") format("woff"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.ttf") format("truetype"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.svg#HelveticaNeueLTStd-Roman") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'bebas_neueregular';
+	src: url("https://www.jennycraig.com.au/statics/fonts/bebasneue_regular-webfont.woff2") format("woff2"), url("https://www.jennycraig.com.au/statics/fonts/bebasneue_regular-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'bebas_neuebold';
+	src: url("https://www.jennycraig.com.au/statics/fonts/bebasneue_bold-webfont.woff2") format("woff2"), url("https://www.jennycraig.com.au/statics/fonts/bebasneue_bold-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* LOADING OVERLAY CODE */
+
+.center-screen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 100vh;
+}
+#loadingOverlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+#loadingOverlay {
+	background: black;
+	opacity: .8;
+	z-index: 9999;
+	display: block;
+}
+body {
+	background: #f3efe8;
+}
+.loading {
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	text-transform: uppercase;
+	z-index: 99999;
+	width: 150px;
+	text-align: center;
+	line-height: 50px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-380%);
+}
+.quiz-dropdown {
+	background: white;
+	border: 0px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 4px;
+	width: 341px;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	/* font-size: 13px; */
+	height: 37px;
+	color: rgba(0, 25, 39, 0.59);
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	opacity: 0.74;
+}
+.loading span {
+	position: relative;
+	z-index: 999;
+	color: #fff;
+}
+.loading:before {
+	content: '';
+	background: #0082c8;
+	width: 128px;
+	height: 36px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	animation: 3s loadingBefore infinite ease-in-out;
+}
+@keyframes loadingBefore {
+	0% {transform: translateX(-14px);}
+	50% {
+		transform: translateX(14px);
+	}
+	100% {
+		transform: translateX(-14px);
+	}
+}
+.loading:after {
+	content: '';
+	background: #f86d41;
+	width: 14px;
+	height: 60px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	opacity: .5;
+	animation: 2s loadingAfter infinite ease-in-out;
+}
+@keyframes loadingAfter {
+	0% {
+		transform: translateX(-50px);
+	}
+	50% {
+		transform: translateX(50px);
+	}
+	100% {
+		transform: translateX(-50px);
+	}
+}
+/* FIELD VALIDATION CODE */
+
+.invalid {
+	outline-color: red;
+	/* also need animation and -moz-animation */
+	animation: shake .5s linear;
+	-webkit-animation: shake .5s linear;
+}
+@-webkit-keyframes shake {
+	8%, 41% {
+		-webkit-transform: translateX(-10px);
+	}
+	25%, 58% {
+		-webkit-transform: translateX(10px);
+	}
+	75% {
+		-webkit-transform: translateX(-5px);
+	}
+	92% {
+		-webkit-transform: translateX(5px);
+	}
+	0%, 100% {
+		-webkit-transform: translateX(0);
+	}
+}
+input[name=text_area]:valid~.textarea-validation::before {
+	content: "✓"!important;
+	color: green!important;
+}
+input[name=text_area]:invalid {
+	color: red!important;
+	border-color: red;
+}
+input[type="text"]:valid {
+	color: green!important;
+	border-color: green;
+}
+input[type="text"]:invalid {
+	color: red!important;
+	border-color: red;
+}
+input[name=form_name]:valid~.name-validation::before {
+	content: "✓";
+	color: green;
+}
+input[name=form_phone]:valid~.phone-validation::before {
+	content: "✓";
+	color: green;
+}
+input[name=form_email]:valid~.email-validation::before {
+	content: "✓";
+	color: green;
+}
+input[type="checkbox"] {
+	width: 4%!important;
+}
+.quiz-disclaimer {
+	margin-top: 25px;
+	font-style: normal!important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	font-size: 11px!important;
+	color: #001927!important;
+	max-width: 430px;
+}
+.quiz-primary-field {
+	max-width: 341px;
+}
+.quiz-green {
+	background: #3EDAE3;
+}
+.quiz-grey {
+	background: #FAFAFA;
+	padding-top: 30px;
+}
+#25-words-textarea {
+	max-width: 656px;
+	height: 186px;
+	background: #FAFAFA;
+	box-shadow: -6px 10px 21px 0 rgba(56, 56, 56, 0.10);
+}
+.quiz-lite-font {
+	font-style: normal!important;
+	font-family: Helvetica Neue LT Std!important;
+	font-size: 16px!important;
+	color: #001927!important;
+}
+#thumbsy .quiz-rect-grey {
+	background: #F9F9F9;
+	box-shadow: -6px 10px 21px 0 rgba(56, 56, 56, 0.10);
+	border-radius: 4px;
+	border: 0px solid #ccc;
+	margin: 9px;
+	height: 185px;
+	width: 314px;
+}
+#thumbsy label input[type="radio"] {
+	display: block;
+	margin: 0.5em auto;
+	font-size: 15px;
+}
+#thumbsy label {
+	display: inline-block;
+	margin: 5px 0.7em;
+}
+/* center radio below label */
+
+#thumbsy.radioGroupBelow label {
+	display: inline-block;
+	text-align: center;
+	margin: 0 0.2em;
+}
+#thumbsy.radioGroupBelow label input[type="radio"] {
+	display: block;
+	margin: 0.5em auto;
+	font-size: 15px!important;
+}
+#thumbsy .emoticon_field__question {
+	padding-top: 17px;
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	opacity: 0.74;
+}
+.field__question {
+	font-family: 'bebas_neuebold';
+	font-size: 24px;
+	color: #02395D;
+	letter-spacing: 0;
+	line-height: 26px;
+	font-style: normal;
+}
+.quiz-into-text {
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	color: #001927;
+	opacity: 0.74;
+	line-height: 1.63;
+}
+.header-introduction-text {
+	margin-top: -20px;
+	padding: 0px 0px 0px 0;
+}
+/*form styles*/
+
+#msform a {
+	font-size: 14px;
+	-moz-transition: all 0.2s ease;
+	margin-top: 25px;
+	font-style: normal!important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	font-size: 11px!important;
+	color: #0081c6!important;
+}
+#msform {
+	width: 100%;
+	margin: 0px auto;
+	text-align: left;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	/*border-radius: 3px; */
+	/*box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);*/
+	box-sizing: border-box;
+	width: 80%;
+	padding: 0;
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+
+.shadow-fields {
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.10), inset 0 0.2px 1px 0 rgba(0, 0, 0, 0.30), inset 0 0.2px 1px 0 rgba(0, 0, 0, 0.30);
+}
+#msform input, #msform textarea {
+	background: #FFFFFF;
+	padding: 10px;
+	border: 0px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 4px;
+	width: 95%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+
+#msform .action-button {
+	font-family: 'bebas_neueregular';
+	margin-top: 20px;
+	background: #EA7600;
+	font-weight: normal;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	width: 116px;
+	height: 40px;
+	font-size: 20px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 21px;
+	letter-spacing: 1px;
+	text-align: center;
+	color: #ffffff;
+}
+#msform .final-button {
+	font-family: 'bebas_neueregular';
+	margin-top: 20px;
+	background: #EA7600;
+	font-weight: normal;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	width: 116px;
+	height: 40px;
+	font-size: 20px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 21px;
+	letter-spacing: 1px;
+	text-align: center;
+	color: #ffffff;
+	margin-bottom: 40px;
+}
+/*radio buttons*/
+
+#msform input[type=radio]+label {
+	font-style: normal;
+	font-family: 'HelveticaNeueLTStd-Roman';
+	font-size: 16px!important;
+	color: #001927;
+	padding-left: 15px;
+	text-indent: 0px;
+	padding: 0;
+	margin: 0;
+	vertical-align: bottom;
+	position: relative!important;
+	top: -22px;
+	left: 35px;
+	opacity: 0.74;
+	letter-spacing: 0;
+	line-height: 22px;
+	font-weight: normal;
+	width: 100%!important;
+	display: block!important;
+}
+#msform input[type=radio] {
+	display: block;
+	width: 20px;
+}
+#msform input[type=radio]:checked+label {
+	color: #0082c8!important;
+	font-style: normal;
+	font-size: 16px!important;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+
+.fs-title {
+	font-size: 17px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+	font-weight: 900;
+}
+h2.fs-title {
+	font-family: 'bebas_neuebold', Helvetica, Arial, sans-serif!important;
+	font-weight: normal;
+	color: #02395d;
+	font-size: 24px;
+	margin-top: 38px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+.send_email {
+	margin-top: 20px;
+}
+::-webkit-input-placeholder {
+	/* Chrome/Opera/Safari */
+	color: rgba(0, 25, 39, 0.59);
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	opacity: 0.74;
+}
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: rgba(0, 25, 39, 0.59);
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	opacity: 0.74;
+}
+:-ms-input-placeholder {
+	/* IE 10+ */
+	color: rgba(0, 25, 39, 0.59);
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	opacity: 0.74;
+}
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: rgba(0, 25, 39, 0.59);
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	opacity: 0.74;
+}
+.send_email label {
+	font-size: 16px!important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
+	color: #001927;
+	opacity: 0.74;
+}
+.container .row {
+	margin: 50px 0px 0px 0px;
+}
+.quiz_heading {
+	 font-family: 'bebas_neuebold';
+	 color: #02395d;
+	 font-size: 58.2px;
+     line-height: inherit!important;
+}
+.quiz_heading2 {
+	font-family: 'Satisfy';
+	color: #fff;
+ 	font-size: 89.6px;
+	margin-top: -34px;
+	margin-left: 39px;
+    line-height: inherit!important;
+    text-transform: inherit!important;
+
+}
+.container .row.firstrow {
+	margin-bottom: 90px;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.prize {
+	font-family: 'bebas_neuebold';
+	color: #02395d;
+ 	font-size: 24px;
+	line-height: 1.08;
+	margin-top: 23px;
+}
+
+#msform .filedset1{
+		 background-image:url('https://www.jennycraig.com.au/statics/img/quiz-page/bg.png') ;
+		 background-color: #F9f9f9;
+		 //background-image:url('bg.png')!important;
+		 background-position: left top;
+		 background-size:  auto 450px;
+		 background-repeat: no-repeat;
+}
+
+#msform .filedset1.page2 {
+		background-color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+		.quiz_heading {
+				font-size: 50.2px;
+		}
+
+		.quiz_heading2 {
+				font-size: 65.6px;
+				margin-top: -15px;
+				margin-left: 20px;
+		}
+
+		.prize {
+				margin-bottom: 20px;
+		}
+
+		.container .row.firstrow {
+			margin-bottom: 20px;
+		}
+
+		#msform .filedset1 {
+				background-size:  auto 600px;
+		}
+
+}
+
+</style>
+
+<div style="background-color:#f7f7f7!important;"></div>
+<div id="loadingOverlay" style="display:none;"></div>
+<div class="centre-screen loading" id="jennyLoading" style="display:none;"><span>Sending...</span></div>
+
+
+
+<!--Quiz Form HTML-->
+<!-- multistep form -->
+<form id="msform">
+  <!-- fieldsets -->
+  <fieldset style="width:100%!important;" class="filedset1">
+
+    <!--Quiz Hero Version 1-->
+
+
+    <div class="container">
+				<div class="row firstrow">
+						<div class="col-md-10 col-md-push-1">
+								<div class="row" style="margin-top:0px;">
+										<div class="col-md-6" >
+												<h1 class="quiz_heading">Do you know</h1>
+												<h2 class="quiz_heading2">healthy?</h2>
+												<div class="prize">Help us discover what makes Australia/New Zealand healthy. Join Jenny Craig’s biggest healthy Quiz for your chance to win $2,000.</div>
+										</div>
+										<div class="col-md-6" style="padding:0 0px;">
+												<img src="https://www.jennycraig.com.au/statics/img/quiz-page/prize.png" alt="Jenny Craig Weight Loss - Quiz - Win $2000" style="display:block; width:100%; max-width:396px; margin-top:0px;">
+										</div>
+								</div>
+						</div>
+
+				</div>
+        <!--Introduction Header Text-->
+        <div class="row">
+            <div class="col-md-5 col-md-push-1">
+              	<div class="validation-fail-shake header-introduction-text">
+              		<p class="quiz-into-text">Jenny Craig has been helping Australian’s/New Zealander’s get
+              		healthier and happier for over 30 years, we love what we do and
+              		we want to do more. Now is your chance to help us do just that,
+              		by sharing your healthy ideas and habits with us. It is as simple
+              		as taking our quick healthy quiz, you might even win a $2,000
+              		visa gift card. Good Luck!</p>
+              	</div>
+
+                <h2 class="validation-fail-shake quiz-primary-field fs-title">Details</h2>
+
+
+                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_name" id="form_name" placeholder="First Name*" pattern="[a-zA-Z][a-zA-Z0-9\s]*" required/>
+
+                <span class="name-validation"></span>
+
+
+                <br/>
+                    <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_phone" id="form_phone" placeholder="Phone*" pattern="^\+?(?:[0-9]??).{5,14}[0-9]$" required/>
+
+                    <span class="phone-validation"></span>
+
+                <br/>
+                    <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_email" id="form_email" placeholder="Email*" pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" required/>
+
+                <span class="email-validation"></span>
+
+                <br/>
+
+                <select id="form_agegroup" name="form_agegroup" title="Please select your age group" class="validation-fail-shake shadow-fields quiz-dropdown mktoField mktoHasWidth mktoValid"><option value="">Select your age group</option><option value="<18">Under 18</option><option value="18-25">18 to 25</option><option value="26-35">26 to 35</option><option value="36-45">36 to 45</option><option value="46-55">46 to 55</option><option value=">55">Over 55</option><option value="Prefer not to say">Prefer not to say</option></select>
+
+                <br/>
+
+                <!--Australia only: State -->
+                <select id="form_state" name="form_state" title="Please select your state of residence" class="validation-fail-shake shadow-fields quiz-dropdown mktoField mktoHasWidth mktoValid"><option value="">Select your State of residence...</option><option value="ACT">ACT</option><option value="NSW">NSW</option><option value="NT">NT</option><option value="QLD">QLD</option><option value="SA">SA</option><option value="TAS">TAS</option><option value="VIC">VIC</option><option value="WA">WA</option></select>
+
+                <div class="send_email validation-fail-shake">
+                      <input checked class="validation-fail-shake quiz-primary-field" type="checkbox" id="form_ok_comms" name="form_commms" value="comms-yes">
+                      <label for="email-commms" class="validation-fail-shake">Yes, send me email comms</label>
+                </div>
+                <div>
+                    <input id="next-btn" type="button" name="next" class="validation-fail-shake quiz-primary-field next action-button" value="Enter now"/>
+                </div>
+
+                <p class="validation-fail-shake quiz-disclaimer"><sup>*</sup>Your information will be kept private in accordance with our <a href="/privacy">Privacy Policy</a><br/>
+                    <sup>*</sup>Competition ends 11.59pm, 12 August 2018. <a href=/terms>Terms and conditions apply.</a></p>
+            </div>
+      </div>
+      </div>
+  </fieldset>
+
+<!--QUIZ QUESTIONS PAGE-->
+<fieldset style="width:100%!important;" class="filedset1 page2">
+
+<div class="container">
+
+		<div class="row firstrow">
+				<div class="col-md-10 col-md-push-1">
+						<div class="row" style="margin-top:0px;">
+								<div class="col-md-6" >
+										<h1 class="quiz_heading">Do you know</h1>
+										<h2 class="quiz_heading2">healthy?</h2>
+										<div class="prize">Help us discover what makes Australia/New Zealand healthy. Join Jenny Craig’s biggest healthy Quiz for your chance to win $2,000.</div>
+								</div>
+								<div class="col-md-6" style="padding:0 0px;">
+										<img src="https://www.jennycraig.com.au/statics/img/quiz-page/prize.png" alt="Jenny Craig Weight Loss - Quiz - Win $2000" style="display:block; width:100%; max-width:396px; margin-top:0px;">
+								</div>
+						</div>
+				</div>
+
+		</div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-push-1">
+            <!--QUESTION 1: IMAGE ON THE RIGHT-->
+            <div class="row">
+
+              <div class="col-md-8">
+                  <p class="field__question">What eating schedule do you<br /> think is the healthiest?</p><br/>
+
+                  <input type="radio" id="1-1" name="Q1">
+                  <label for="1-1">Skip breakfast and skip lunch, eat a big dinner and lots of snacks
+                  </label>
+
+                  <input type="radio" id="1-2" name="Q1">
+                  <label for="1-2">Breakfast, Lunch, Dinner and small snacks
+                  </label>
+
+                  <input type="radio" id="1-3" name="Q1">
+                  <label for="1-3">Skip breakfast, eat a standard lunch and dinner with no snacks
+                  </label>
+
+                  <input type="radio" id="1-4" name="Q1">
+                  <label for="1-4">Constant snacking throughout the day
+                  </label>
+                </div>
+
+                <div class="col-md-4">
+                  <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-02.gif">
+                </div>
+
+            </div>
+
+            <!--QUESTION 2: IMAGE ON THE LEFT-->
+            <div class="row">
+                <!--Question 2 Radio Group -->
+                <div class="col-md-8 col-md-push-4">
+                    <p class="field__question">Which of the below statements you agree with most strongly?</p><br/>
+
+                    <input type="radio" id="2-1" name="Q2">
+                    <label for="2-1">You should avoid high fat and high sugar foods all of the time to maintain a healthy diet
+                    </label>
+
+                    <input type="radio" id="2-2" name="Q2">
+                    <label for="2-2">You should eat everything in moderation and not deny yourself select food groups
+                    </label>
+
+                    <input type="radio" id="2-3" name="Q2">
+                    <label for="2-3">You should avoid high fat and high sugar foods 6 days a week and allow yourself a cheat day every week to eat whatever you like to maintain a healthy diet
+                    </label>
+
+                </div>
+                <!--Question 2 GIF -->
+                <div class=" col-md-4 col-md-pull-8">
+                    <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-03.gif">
+                </div>
+            </div>
+
+            <!--QUESTION 3: IMAGE ON THE RIGHT-->
+            <div class="row">
+                <!--Question 3 Radio Group -->
+                <div class="col-md-6">
+                       <p class="field__question">How many times a week should you <br />exercise to maintain a healthy lifestyle</p><br/>
+
+                      <input type="radio" id="3-1" name="Q3">
+                      <label for="3-1">2 – 4 intensive exercise sessions a week
+                      </label>
+
+                      <input type="radio" id="3-2" name="Q3">
+                      <label for="3-2">Daily intensive exercise sessions
+                      </label>
+
+                      <input type="radio" id="3-3" name="Q3">
+                      <label for="3-3">Moderate exercise such as brisk walking 2 times a week
+                      </label>
+
+                      <input type="radio" id="3-4" name="Q3">
+                      <label for="3-4">Some form of moderate or intensive exercise most days
+                      </label>
+
+                </div>
+                <!--Question 3 GIF -->
+                <div class="col-md-6">
+                    <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-04.gif">
+                </div>
+            </div>
+
+            <!--QUESTION 4: IMAGE ON THE LEFT-->
+            <div class="row">
+                <!--Question 4 GIF -->
+
+                <!--Question 4 Radio Group -->
+                <div class="col-md-8 col-md-push-4">
+                    <p class="field__question">How much food should you eat a day?</p><br/>
+                    <input type="radio" id="4-1" name="Q4">
+                    <label for="4-1">Three similar sized meals and small snacks
+                    </label>
+
+                    <input type="radio" id="4-2" name="Q4">
+                    <label for="4-2">Three large meals and no snacks
+                    </label>
+
+                    <input type="radio" id="4-3" name="Q4">
+                    <label for="4-3">Breakfast and a snack in the morning, a medium sized lunch and a medium sized dinner
+                    </label>
+
+                    <input type="radio" id="4-4" name="Q4">
+                    <label for="4-4">One large meal and some snacks
+                    </label>
+                </div>
+
+                <div class=" col-md-4 col-md-pull-8">
+                    <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-05.gif">
+                </div>
+              </div>
+
+              <!--QUESTIONS 5,6,7 - Thumbs-->
+
+            <div id="thumbsy">
+                  <div class="row" style="margin-bottom:0;">
+                      <!--Thumbs title -->
+                      <div style="border: 0px solid #ccc; min-width:325px; " class="col-md-10">
+                        <p class="field__question">Do you agree with the below statements in <br /> regards to healthy lifestyle and diet?</p><br/>
+                     </div>
+                  </div>
+
+                  <div class="row"  style="margin-top:0; margin-bottom:0;">
+                      <!--Question 5 Radio Group -->
+                      <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
+                            <p style="text-align:center;" class="quiz-lite-font emoticon_field__question field__question">Should you avoid or cut down on carbs from your diet?</p>
+                            <center>
+                            <div class="radioGroupBelow">
+
+                                <label for="5-1"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-upNEW.png">
+                                    <input type="radio" name="Q5" id="5-1">
+                                </label>
+
+                                <label for="5-2"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-downNEW.png">
+                                    <input type="radio" name="Q5" id="5-2">
+                                </label>
+                              </div>
+                                </center>
+
+                      </div>
+
+                          <!--Question 6 Radio Group -->
+
+                      <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
+                        <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should eat <br/>sugar free diet?</p>
+                        <center>
+                        <div class="radioGroupBelow">
+
+                            <label for="6-1"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-upNEW.png">
+                                <input type="radio" name="Q6" id="6-1">
+                            </label>
+
+                            <label for="6-2"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-downNEW.png">
+                                <input type="radio" name="Q6" id="6-2">
+                            </label>
+                          </div>
+                            </center>
+                      </div>
+                  </div>
+
+                  <div class="row" style="margin-top:0;">
+                      <!--Question 7 Radio Group -->
+                        <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
+                            <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should cut fat <br/>from your diet</p>
+
+                            <center>
+                                <div class="radioGroupBelow">
+
+                                    <label for="7-1"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-upNEW.png">
+                                        <input type="radio" name="Q7" id="7-1">
+                                    </label>
+
+                                    <label for="7-2"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-downNEW.png">
+                                        <input type="radio" name="Q7" id="7-2">
+                                    </label>
+                                  </div>
+                            </center>
+                      </div>
+                  </div>
+
+                  <div class="row" style="margin-top:0;">
+                      <!--Checkbox  -->
+
+                    <div class="send_email">
+                        <input class="quiz-primary-field" value="Yes" type="checkbox" id="form_consultant_contact" name="form_consultant_contact" value="Yes">
+                        <label for="form_consultant_contact" class="">I would like to hear from a Consultant about my weight loss journey</label>
+                    </div>
+
+                    <br/>
+
+                    <select hidden id="form_chosenCentreEmail" name="form_CTR_Email" title="Select your preferred centre" class="shadow-fields quiz-dropdown mktoField mktoHasWidth mktoValid" style="width: 300px;"><option value="">Select your preferred centre...</option><option value="Albury@jennycraig.com.au">Albury</option><option value="Bathurst@jennycraig.com.au">Bathurst</option><option value="blacktown@jennycraig.com.au">Blacktown</option><option value="bondi@jennycraig.com.au">Bondi</option><option value="burwood@jennycraig.com.au">Burwood</option><option value="campbelltown@jennycraig.com.au">Campbelltown</option><option value="castlehill@jennycraig.com.au">Castle Hill</option><option value="4102@jennycraigcentre.com">Casula</option><option value="chatswood@jennycraig.com.au">Chatswood</option><option value="deewhy@jennycraig.com.au">Dee Why</option><option value="Dubbo@jennycraig.com.au">Dubbo</option><option value="erina@jennycraig.com.au">Erina</option><option value="4101@jennycraigcentre.com">Goulburn</option><option value="kogarah@jennycraig.com.au">Kogarah</option><option value="kotara@jennycraig.com.au">Kotara</option><option value="maitland@jennycraig.com.au">Maitland</option><option value="miranda@jennycraig.com.au">Miranda</option><option value="morisset@jennycraig.com.au">Morisset</option><option value="Orange@jennycraig.com.au">Orange</option><option value="parramatta@jennycraig.com.au">Parramatta</option><option value="penrith@jennycraig.com.au">Penrith</option><option value="portmacquarie@jennycraig.com.au">Port Macquarie</option><option value="ryde@jennycraig.com.au">Ryde</option><option value="sydney@jennycraig.com.au">Sydney City</option><option value="tamworth@jennycraig.com.au">Tamworth</option><option value="Wagga@jennycraig.com.au">Wagga Wagga</option><option value="wollongong@jennycraig.com.au">Wollongong</option>
+                    </select>
+
+                      <!--TEAM FORM PLACEMENT-->
+
+                    <script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
+                    <form style="visibility: hidden;" id="mktoForm_2494"></form>
+
+                  </div>
+
+									<div class="row">
+										<!--Question 8 Text Area -->
+
+						</div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="background: #FAFAFA;">
+		<div class="container">
+				<div class="row">
+						<div class="col-md-10 col-md-push-1">
+							<div class="quiz-grey">
+
+									<!--Thumbs title -->
+									<div class="row" style="margin-top:0;margin-bottom:0;margin-left:-15px;margin-right:-15px;">
+											<div style=" border: 0px solid #ccc; " class="col-md-12">
+												 <p class="validation-fail-shake field__question">Tell us in 25 words or less what you do to maintain a healthy<br /> lifestyle and weight</p><br/>
+												 <textarea style="min-height:186px; resize:none;" class="validation-fail-shake" id="text_area" name="text_area" placeholder="Type your response here" pattern="[a-zA-Z][a-zA-Z0-9\s]*" required></textarea>
+													<span class="textarea-validation"></span>
+													<br/><br/>
+
+													<!--Hidden input values - these are populated programmatically by event listeners -->
+													<div style="display:none;">
+															<input type="text" id="Q1-answer" value="No answer"/>
+															<input type="text" id="Q2-answer" value="No answer"/>
+															<input type="text" id="Q3-answer" value="No answer"/>
+															<input type="text" id="Q4-answer" value="No answer"/>
+															<input type="text" id="Q5-answer" value="No answer"/>
+															<input type="text" id="Q6-answer" value="No answer"/>
+															<input type="text" id="Q7-answer" value="No answer"/>
+													</div>
+													<div>
+															<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
+															<input id="AlternativeSubmitButton" type="button" name="submit" class="validation-fail-shake submit final-button" value="Send" />
+															<script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
+													</div>
+											</div>
+								 </div>
+							</div>
+						</div>
+				</div>
+		</div>
+</div>
+
+  </fieldset>
+</form>
+
+
+
+<!-- Form Login jQuery-->
+<script>
+
+//Load and submit external form
+function loadExternalForm() {
+    MktoForms2.loadForm("//app-abm.marketo.com", "139-RET-710", 2494, function(form) {
+
+      form.vals({
+      /*form_ok*/  "FirstName": document.querySelector("input[name='form_name']").value,
+      /*form_ok*/  "Email": document.querySelector("input[name='form_email']").value,
+      /*form_ok*/  "MobilePhone": document.getElementById('form_phone').value,
+      /*form_ok*/  "Email": document.querySelector("input[name='form_email']").value,
+      /*form_ok*/  "ageGroup": document.getElementById('form_agegroup').value,
+      /*form_ok*/  "survey01": document.getElementById('Q1-answer').value,
+      /*form_ok*/  "survey02": document.getElementById('Q2-answer').value,
+      /*form_ok*/  "survey03": document.getElementById('Q3-answer').value,
+      /*form_ok*/  "survey04": document.getElementById('Q4-answer').value,
+      /*form_ok*/  "survey05": document.getElementById('Q5-answer').value, //thumb1
+      /*form_ok*/  "survey06": document.getElementById('Q6-answer').value, //thumb2
+      /*form_ok*/  "survey07": document.getElementById('Q7-answer').value, //thumb3
+      /*form_ok*/  "survey08": document.getElementById('text_area').value,
+      /*form_ok*/  "State": document.getElementById('form_state').value,
+      /*form_ok*/  "mktoCheckbox_36599_0": document.getElementById('form_ok_comms').value, //comms?
+      /*form_ok*/  "mktoCheckbox_36692_0": document.getElementById('form_consultant_contact').value,
+      /*form_ok*/  "chosenCentreEmail": document.getElementById('form_chosenCentreEmail').value
+            });
+
+
+        // Submit the form
+        MktoForms2.whenReady(function (form) {form.submit();});
+
+        // Redirect to thank you page on successful submission
+        form.onSuccess(function(values, followUpUrl) {
+        location.href = "https://www.jennycraig.com.au/healthy-quiz-thank-you";
+        // Return false to prevent the submission handler continuing with its own processing
+        return false;
+        });
+    });
+}
+
+
+
+//jQuery time
+var current_fs, next_fs, previous_fs; //fieldsets
+var left, opacity, scale; //fieldset properties which we will animate
+var animating; //flag to prevent quick multi-click glitches
+//$("fieldset").show();
+// Wrapping to avoid jQuery 'not-a-function' error
+(function($) {
+	$(window).load(function() {
+
+
+
+
+    var aValue1_1 = 
+    "1. What eating schedule is healthiest? Skip breakfast and skip lunch, eat a big dinner and lots of snacks ;";
+    var aValue1_2 = 
+    "1. What eating schedule is healthiest? Breakfast, Lunch, Dinner and small snacks ;";
+    var aValue1_3 = 
+    "1. What eating schedule is healthiest? Skip breakfast, eat a standard lunch and dinner with no snacks ;";
+    var aValue1_4 = 
+    "1. What eating schedule is healthiest? Constant snacking throughout the day ;";
+    var aValue2_1 =
+    "2. Which statement agree with most? Avoid high fat and high sugar foods all of the time to maintain a healthy diet ;"; 
+    var aValue2_2 =
+    "2. Which statement agree with most? Eat everything in moderation and not deny yourself select food groups ;"; 
+    var aValue2_3 =
+    "2. Which statement agree with most? Avoid high fat and high sugar foods 6 days a week and allow yourself a cheat day every week to eat whatever you like to maintain a healthy diet ;"; 
+    var aValue3_1 =
+    "3. How many times a week should you exercise for healthy lifestyle? 2 – 4 intensive exercise sessions a week ;"; 
+    var aValue3_2 =
+    "3. How many times a week should you exercise for healthy lifestyle? Daily intensive exercise sessions ;"; 
+    var aValue3_3 =
+    "3. How many times a week should you exercise for healthy lifestyle? Moderate exercise such as brisk walking 2 times a week ;"; 
+    var aValue3_4 =
+    "3. How many times a week should you exercise for healthy lifestyle? Moderate exercise such as brisk walking 2 times a week ;"; 
+    var aValue4_1 =
+    "4. How much food per day? 3 similar sized meals and small snacks ;"; 
+    var aValue4_2 =
+    "4. How much food per day? 3 large meals and no snacks ;"; 
+    var aValue4_3 =
+    "4. How much food per day? Breakfast and a snack in the morning, a medium sized lunch and a medium sized dinner ;";
+    var aValue4_4 = 
+    "4. How much food per day? 1 large meal and some snacks ;";
+    var aValue5_1 =
+    "5. You should avoid or cut down on carbs from your diet? Yes ;"; 
+    var aValue5_2 =
+    "5. You should avoid or cut down on carbs from your diet? No ;"; 
+    var aValue6_1 =
+    "6. You should eat sugar free diet? Yes ;"; 
+    var aValue6_2 =
+    "6. You should eat sugar free diet? No ;";
+    var aValue7_1 =
+    "7. You should cut fat from your diet? Yes ;"; 
+    var aValue7_2 =
+    "7. You should cut fat from your diet? No ;"; 
+
+
+        //checkbox event listeners will change hidden input values which on submit are passed to Main Form via Rest API )
+
+        $('#1-1').change(function(){if($(this).is(':checked')) {  $('#Q1-answer').val(aValue1_1);  } });
+        $('#1-2').change(function(){if($(this).is(':checked')) {  $('#Q1-answer').val(aValue1_2);  } });
+        $('#1-3').change(function(){if($(this).is(':checked')) {  $('#Q1-answer').val(aValue1_3);  } });
+        $('#1-4').change(function(){if($(this).is(':checked')) {  $('#Q1-answer').val(aValue1_4);  } });
+        $('#2-1').change(function(){if($(this).is(':checked')) {  $('#Q2-answer').val(aValue2_1);  } });
+        $('#2-2').change(function(){if($(this).is(':checked')) {  $('#Q2-answer').val(aValue2_2);  } });
+        $('#2-3').change(function(){if($(this).is(':checked')) {  $('#Q2-answer').val(aValue2_3);  } });
+        $('#3-1').change(function(){if($(this).is(':checked')) {  $('#Q3-answer').val(aValue3_1);  } });
+        $('#3-2').change(function(){if($(this).is(':checked')) {  $('#Q3-answer').val(aValue3_2);  } });
+        $('#3-3').change(function(){if($(this).is(':checked')) {  $('#Q3-answer').val(aValue3_3);  } });
+        $('#3-4').change(function(){if($(this).is(':checked')) {  $('#Q3-answer').val(aValue3_4);  } });
+        $('#4-1').change(function(){if($(this).is(':checked')) {  $('#Q4-answer').val(aValue4_1);  } });
+        $('#4-2').change(function(){if($(this).is(':checked')) {  $('#Q4-answer').val(aValue4_2);  } });
+        $('#4-3').change(function(){if($(this).is(':checked')) {  $('#Q4-answer').val(aValue4_3);  } });
+        $('#4-4').change(function(){if($(this).is(':checked')) {  $('#Q4-answer').val(aValue4_4);  } });
+        $('#5-1').change(function(){if($(this).is(':checked')) {  $('#Q5-answer').val(aValue5_1);  } });
+        $('#5-2').change(function(){if($(this).is(':checked')) {  $('#Q5-answer').val(aValue5_2);  } });
+        $('#6-1').change(function(){if($(this).is(':checked')) {  $('#Q6-answer').val(aValue6_1);  } });
+        $('#6-2').change(function(){if($(this).is(':checked')) {  $('#Q6-answer').val(aValue6_2);  } });
+        $('#7-1').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_1);  } });
+        $('#7-2').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_2);  } });
+
+
+        //On change in "state" selected value - replace list of states
+
+    $( "#form_state" ).change(function() {
+
+        var state = this.value;
+
+
+        //Swap state values dropdown: depending on which state was selected
+
+        if (state==="NSW") {
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="Albury@jennycraig.com.au">Albury</option><option value="Bathurst@jennycraig.com.au">Bathurst</option><option value="blacktown@jennycraig.com.au">Blacktown</option><option value="bondi@jennycraig.com.au">Bondi</option><option value="burwood@jennycraig.com.au">Burwood</option><option value="campbelltown@jennycraig.com.au">Campbelltown</option><option value="castlehill@jennycraig.com.au">Castle Hill</option><option value="4102@jennycraigcentre.com">Casula</option><option value="chatswood@jennycraig.com.au">Chatswood</option><option value="deewhy@jennycraig.com.au">Dee Why</option><option value="Dubbo@jennycraig.com.au">Dubbo</option><option value="erina@jennycraig.com.au">Erina</option><option value="4101@jennycraigcentre.com">Goulburn</option><option value="kogarah@jennycraig.com.au">Kogarah</option><option value="kotara@jennycraig.com.au">Kotara</option><option value="maitland@jennycraig.com.au">Maitland</option><option value="miranda@jennycraig.com.au">Miranda</option><option value="morisset@jennycraig.com.au">Morisset</option><option value="Orange@jennycraig.com.au">Orange</option><option value="parramatta@jennycraig.com.au">Parramatta</option><option value="penrith@jennycraig.com.au">Penrith</option><option value="portmacquarie@jennycraig.com.au">Port Macquarie</option><option value="ryde@jennycraig.com.au">Ryde</option><option value="sydney@jennycraig.com.au">Sydney City</option><option value="tamworth@jennycraig.com.au">Tamworth</option><option value="Wagga@jennycraig.com.au">Wagga Wagga</option><option value="wollongong@jennycraig.com.au">Wollongong</option>');
+        }
+
+        if (state==="NT") {
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="darwin@jennycraig.com.au">Darwin</option>');
+        }
+
+        if (state==="QLD") {
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="booval@jennycraig.com.au">Booval</option><option value="Bundaberg@jennycraig.com.au">Bundaberg</option><option value="cairns@jennycraig.com.au">Cairns</option><option value="carina@jennycraig.com.au">Carina</option><option value="chermside@jennycraig.com.au">Chermside</option><option value="Emerald@jennycraig.com.au">Emerald</option><option value="Gladstone@jennycraig.com.au">Gladstone</option><option value="helensvale@jennycraig.com.au">Helensvale</option><option value="HerveyBay@jennycraig.com.au">Hervey Bay</option><option value="mackay@jennycraig.com.au">Mackay</option><option value="maroochydore@jennycraig.com.au">Maroochydore</option><option value="morayfield@jennycraig.com.au">Morayfield</option><option value="robina@jennycraig.com.au">Robina</option><option value="Rockhampton@jennycraig.com.au">Rockhampton</option><option value="springwood@jennycraig.com.au">Springwood</option><option value="strathpine@jennycraig.com.au">Strathpine</option><option value="taringa@jennycraig.com.au">Taringa</option><option value="toowoomba@jennycraig.com.au">Toowoomba</option><option value="townsville@jennycraig.com.au">Townsville</option>');
+        }
+
+        if (state==="SA") {
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="Felixstow@jennycraig.com.au">Felixstow</option><option value="Marion@jennycraig.com.au">Marion</option><option value="Modbury@jennycraig.com.au">Modbury</option><option value="MorphettVale@jennycraig.com.au">Morphett Vale</option><option value="Payneham@jennycraig.com.au">Payneham</option><option value="Salisbury@jennycraig.com.au">Salisbury</option><option value="Unley@jennycraig.com.au">Unley</option><option value="WestLakes@jennycraig.com.au">West Lakes</option>');
+        }
+
+        if (state==="TAS") {
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="burnie@jennycraig.com.au">Burnie</option><option value="hobart@jennycraig.com.au">Hobart</option><option value="launceston@jennycraig.com.au">Launceston</option>');
+        }
+
+        if (state==="VIC") {
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="ballarat@jennycraig.com.au">Ballarat</option><option value="bendigo@jennycraig.com.au">Bendigo</option><option value="cheltenham@jennycraig.com.au">Cheltenham</option><option value="cranbourne@jennycraig.com.au">Cranbourne</option><option value="doncaster@jennycraig.com.au">Doncaster</option><option value="frankston@jennycraig.com.au">Frankston</option><option value="geelong@jennycraig.com.au">Geelong</option><option value="greensborough@jennycraig.com.au">Greensborough</option><option value="horsham@jennycraig.com.au">Horsham</option><option value="knox@jennycraig.com.au">Knox</option><option value="mildura@jennycraig.com.au">Mildura</option><option value="mooneeponds@jennycraig.com.au">Moonee Ponds</option><option value="mtwaverley@jennycraig.com.au">Mt. Waverley</option><option value="northcote@jennycraig.com.au">Northcote</option><option value="pakenham@jennycraig.com.au">Pakenham</option><option value="prahran@jennycraig.com.au">Prahran</option><option value="ringwood@jennycraig.com.au">Ringwood</option><option value="shepparton@jennycraig.com.au">Shepparton</option><option value="traralgon@jennycraig.com.au">Traralgon</option><option value="Wangaratta@jennycraig.com.au">Wangaratta</option><option value="warrnambool@jennycraig.com.au">Warrnambool</option><option value="werribee@jennycraig.com.au">Werribee</option>');
+        }
+
+        if (state==="WA") {
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="bunbury@jennycraig.com.au">Bunbury</option><option value="cannington@jennycraig.com.au">Cannington</option><option value="fremantle@jennycraig.com.au">Fremantle</option><option value="joondalup@jennycraig.com.au">Joondalup</option><option value="mandurah@jennycraig.com.au">Mandurah</option><option value="midland@jennycraig.com.au">Midland</option><option value="morley@jennycraig.com.au">Morley</option><option value="rockingham@jennycraig.com.au">Rockingham</option><option value="stirling@jennycraig.com.au">Stirling</option>');
+        }
+            console.log("Completed swap values");
+
+        })
+
+
+		//Unhide centres if consultant's checkbox is checked
+		var checkbox = $("#form_consultant_contact");
+		var centreList = $("#form_chosenCentreEmail");
+		checkbox.click(function() {
+			centreList.attr("hidden", centreList.is(":checked"));
+		});
+		$(".next").click(function() {
+			//Validation for the first 3 fields of the form
+			var email_isValid = document.getElementById("form_email").checkValidity();
+			var phone_isValid = document.getElementById("form_phone").checkValidity();
+			var names_isValid = document.getElementById("form_name").checkValidity();
+			//Check if validation pattern matches
+			if (email_isValid === true && phone_isValid === true && names_isValid ===
+				true) {
+				if (animating) return false;
+				animating = true;
+				//current_fs = $(this).parent();
+				current_fs = $(this).closest("fieldset");
+				//console.log(current_fs);
+				next_fs = $(this).closest("fieldset").next();
+				//show the next fieldset
+				next_fs.show();
+				//hide the current fieldset with style
+				current_fs.animate({
+					opacity: 0
+				}, {
+					step: function(now, mx) {
+						//as the opacity of current_fs reduces to 0 - stored in "now"
+						//1. scale current_fs down to 80%
+						scale = 1 - (1 - now) * 0.2;
+						//2. bring next_fs from the right(50%)
+						left = (now * 50) + "%";
+						//3. increase opacity of next_fs to 1 as it moves in
+						opacity = 1 - now;
+						current_fs.css({
+							'transform': 'scale(' + scale + ')',
+							'position': 'absolute'
+						});
+						next_fs.css({
+							'left': left,
+							'opacity': opacity
+						});
+					},
+					duration: 800,
+					complete: function() {
+						current_fs.hide();
+						animating = false;
+					},
+					//this comes from the custom easing plugin
+					easing: 'easeInOutBack'
+				});
+			}
+			//if not valid - launch the shaking animation
+			else {
+				var $formContainer = $('.validation-fail-shake');
+				$formContainer.addClass('invalid');
+				setTimeout(function() {
+					$formContainer.removeClass('invalid');
+				}, 500);
+			};
+		});
+	});
+})(jQuery);
+(function($) {
+	$(window).load(function() {
+		$(".previous").click(function() {
+			if (animating) return false;
+			animating = true;
+			current_fs = $(this).parent();
+			previous_fs = $(this).parent().prev();
+			//de-activate current step on progressbar
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass(
+				"active");
+			//show the previous fieldset
+			previous_fs.show();
+			//hide the current fieldset with style
+			current_fs.animate({
+				opacity: 0
+			}, {
+				step: function(now, mx) {
+					//as the opacity of current_fs reduces to 0 - stored in "now"
+					//1. scale previous_fs from 80% to 100%
+					scale = 0.8 + (1 - now) * 0.2;
+					//2. take current_fs to the right(50%) - from 0%
+					left = ((1 - now) * 50) + "%";
+					//3. increase opacity of previous_fs to 1 as it moves in
+					opacity = 1 - now;
+					current_fs.css({
+						'left': left
+					});
+					previous_fs.css({
+						'transform': 'scale(' + scale + ')',
+						'opacity': opacity
+					});
+				},
+				duration: 800,
+				complete: function() {
+					current_fs.hide();
+					animating = false;
+				},
+				//this comes from the custom easing plugin
+				easing: 'easeInOutBack'
+			});
+		});
+	});
+})(jQuery);
+(function($) {
+	$(window).load(function() {
+		$(".submit").click(function() {
+			//Text area validation check before submit
+			//
+			var textarea_isValid = document.getElementById("text_area").checkValidity();
+			//Check if validation pattern matches
+			if (textarea_isValid === true) {
+				//Submitting marketo form with RestAPI - AUSTRALIA FORM
+
+				//Start preloader animation and wait 3.5 seconds whilst it's playing
+
+				//programmatically reposition div in viewport centre
+
+				jQuery.fn.center = function() {
+					this.css("position", "absolute");
+					this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) /
+						2) + $(window).scrollTop()) + "px");
+					this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) /
+						2) + $(window).scrollLeft()) + "px");
+					return this;
+				}
+				//hide unnecessary elements when preloade
+				$('.home-b-jcah').hide();
+				$('.site-switcher').hide();
+				$('#admin-menu-wrapper').hide();
+				$('navbar').hide();
+				$('.footer').hide();
+				$('#loadingOverlay').show();
+				$('#jennyLoading').center();
+				$('#jennyLoading').show();
+				setTimeout(function() {
+					$('#myOverlay').show();
+				}, 4500);
+
+
+
+                //submit marketo form here
+
+                loadExternalForm();
+
+			}
+
+			else {
+				//validation-fail - shake animation
+				var $formContainer = $('.validation-fail-shake');
+				$formContainer.addClass('invalid');
+				setTimeout(function() {
+					$formContainer.removeClass('invalid');
+				}, 500);
+			}
+		});
+	});
+})(jQuery);
+
+
+</script>
+
+
+<!-- Easing jQuery Plugin -->
+
+<script>
+
+/*
+ * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+ *
+*/
+
+(function($) {
+$(window).load(function() {
+jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(e,f,a,h,g){return jQuery.easing[jQuery.easing.def](e,f,a,h,g)},easeInQuad:function(e,f,a,h,g){return h*(f/=g)*f+a},easeOutQuad:function(e,f,a,h,g){return -h*(f/=g)*(f-2)+a},easeInOutQuad:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f+a}return -h/2*((--f)*(f-2)-1)+a},easeInCubic:function(e,f,a,h,g){return h*(f/=g)*f*f+a},easeOutCubic:function(e,f,a,h,g){return h*((f=f/g-1)*f*f+1)+a},easeInOutCubic:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f+a}return h/2*((f-=2)*f*f+2)+a},easeInQuart:function(e,f,a,h,g){return h*(f/=g)*f*f*f+a},easeOutQuart:function(e,f,a,h,g){return -h*((f=f/g-1)*f*f*f-1)+a},easeInOutQuart:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f+a}return -h/2*((f-=2)*f*f*f-2)+a},easeInQuint:function(e,f,a,h,g){return h*(f/=g)*f*f*f*f+a},easeOutQuint:function(e,f,a,h,g){return h*((f=f/g-1)*f*f*f*f+1)+a},easeInOutQuint:function(e,f,a,h,g){if((f/=g/2)<1){return h/2*f*f*f*f*f+a}return h/2*((f-=2)*f*f*f*f+2)+a},easeInSine:function(e,f,a,h,g){return -h*Math.cos(f/g*(Math.PI/2))+h+a},easeOutSine:function(e,f,a,h,g){return h*Math.sin(f/g*(Math.PI/2))+a},easeInOutSine:function(e,f,a,h,g){return -h/2*(Math.cos(Math.PI*f/g)-1)+a},easeInExpo:function(e,f,a,h,g){return(f==0)?a:h*Math.pow(2,10*(f/g-1))+a},easeOutExpo:function(e,f,a,h,g){return(f==g)?a+h:h*(-Math.pow(2,-10*f/g)+1)+a},easeInOutExpo:function(e,f,a,h,g){if(f==0){return a}if(f==g){return a+h}if((f/=g/2)<1){return h/2*Math.pow(2,10*(f-1))+a}return h/2*(-Math.pow(2,-10*--f)+2)+a},easeInCirc:function(e,f,a,h,g){return -h*(Math.sqrt(1-(f/=g)*f)-1)+a},easeOutCirc:function(e,f,a,h,g){return h*Math.sqrt(1-(f=f/g-1)*f)+a},easeInOutCirc:function(e,f,a,h,g){if((f/=g/2)<1){return -h/2*(Math.sqrt(1-f*f)-1)+a}return h/2*(Math.sqrt(1-(f-=2)*f)+1)+a},easeInElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return -(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e},easeOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k)==1){return e+l}if(!j){j=k*0.3}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}return g*Math.pow(2,-10*h)*Math.sin((h*k-i)*(2*Math.PI)/j)+l+e},easeInOutElastic:function(f,h,e,l,k){var i=1.70158;var j=0;var g=l;if(h==0){return e}if((h/=k/2)==2){return e+l}if(!j){j=k*(0.3*1.5)}if(g<Math.abs(l)){g=l;var i=j/4}else{var i=j/(2*Math.PI)*Math.asin(l/g)}if(h<1){return -0.5*(g*Math.pow(2,10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j))+e}return g*Math.pow(2,-10*(h-=1))*Math.sin((h*k-i)*(2*Math.PI)/j)*0.5+l+e},easeInBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*(f/=h)*f*((g+1)*f-g)+a},easeOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}return i*((f=f/h-1)*f*((g+1)*f+g)+1)+a},easeInOutBack:function(e,f,a,i,h,g){if(g==undefined){g=1.70158}if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a},easeInBounce:function(e,f,a,h,g){return h-jQuery.easing.easeOutBounce(e,g-f,0,h,g)+a},easeOutBounce:function(e,f,a,h,g){if((f/=g)<(1/2.75)){return h*(7.5625*f*f)+a}else{if(f<(2/2.75)){return h*(7.5625*(f-=(1.5/2.75))*f+0.75)+a}else{if(f<(2.5/2.75)){return h*(7.5625*(f-=(2.25/2.75))*f+0.9375)+a}else{return h*(7.5625*(f-=(2.625/2.75))*f+0.984375)+a}}}},easeInOutBounce:function(e,f,a,h,g){if(f<g/2){return jQuery.easing.easeInBounce(e,f*2,0,h,g)*0.5+a}return jQuery.easing.easeOutBounce(e,f*2-g,0,h,g)*0.5+h*0.5+a}});
+
+});
+})(jQuery);
+</script>
