@@ -610,14 +610,14 @@ h2.fs-title {
                 <h2 class="validation-fail-shake quiz-primary-field fs-title">Details</h2>
 
 
-                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_name" id="form_name" placeholder="First Name*" pattern="[a-zA-Z][a-zA-Z0-9\s]*" required/>
+                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_name" id="form_name" placeholder="First Name*" pattern="^([A-Za-z]+[,.]?[ ]?|[a-z]+['-]?)+$" required/>
 
                 <span class="name-validation"></span>
 
 
                 <br/>
 
-                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_lastname" id="form_lastname" placeholder="Last Name*" pattern="[a-zA-Z][a-zA-Z0-9\s]*" required/>
+                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_lastname" id="form_lastname" placeholder="Last Name*" pattern="^([A-Za-z]+[,.]?[ ]?|[a-z]+['-]?)+$" required/>
 
                 <span class="lastname-validation"></span>
 
