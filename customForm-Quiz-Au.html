@@ -13,7 +13,7 @@
 	src: url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.eot?#iefix") format("embedded-opentype"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.otf") format("opentype"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.woff") format("woff"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.ttf") format("truetype"), url("https://www.jennycraig.com.au/statics/fonts/HelveticaNeueLTStd-Roman.svg#HelveticaNeueLTStd-Roman") format("svg");
 	font-weight: normal;
 	font-style: normal;
-}
+}dman-lastname@zonk.com.au
 @font-face {
 	font-family: 'bebas_neueregular';
 	src: url("https://www.jennycraig.com.au/statics/fonts/bebasneue_regular-webfont.woff2") format("woff2"), url("https://www.jennycraig.com.au/statics/fonts/bebasneue_regular-webfont.woff") format("woff");
@@ -179,6 +179,10 @@ input[type="text"]:invalid {
 	border-color: red;
 }
 input[name=form_name]:valid~.name-validation::before {
+	content: "✓";
+	color: green;
+}
+input[name=form_lastname]:valid~.lastname-validation::before {
 	content: "✓";
 	color: green;
 }
@@ -601,6 +605,14 @@ h2.fs-title {
 
 
                 <br/>
+
+                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_lastname" id="form_lastname" placeholder="Last Name*" pattern="[a-zA-Z][a-zA-Z0-9\s]*" required/>
+
+                <span class="lastname-validation"></span>
+
+
+                <br/>
+
                     <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_phone" id="form_phone" placeholder="Phone*" pattern="^\+?(?:[0-9]??).{5,14}[0-9]$" required/>
 
                     <span class="phone-validation"></span>
@@ -917,6 +929,7 @@ function loadExternalForm() {
 
       form.vals({
       /*form_ok*/  "FirstName": document.querySelector("input[name='form_name']").value,
+      /*form_ok*/  "LastName": document.querySelector("input[name='form_lastname']").value,
       /*form_ok*/  "Email": document.querySelector("input[name='form_email']").value,
       /*form_ok*/  "MobilePhone": document.getElementById('form_phone').value,
       /*form_ok*/  "Email": document.querySelector("input[name='form_email']").value,
@@ -1083,9 +1096,11 @@ var animating; //flag to prevent quick multi-click glitches
 			var email_isValid = document.getElementById("form_email").checkValidity();
 			var phone_isValid = document.getElementById("form_phone").checkValidity();
 			var names_isValid = document.getElementById("form_name").checkValidity();
+			var lastname_isValid = document.getElementById("form_lastname").checkValidity();
+
 			//Check if validation pattern matches
-			if (email_isValid === true && phone_isValid === true && names_isValid ===
-				true) {
+			if (email_isValid === true && lastname_isValid === true && phone_isValid === true && names_isValid === true) {
+
 				if (animating) return false;
 				animating = true;
 				//current_fs = $(this).parent();
