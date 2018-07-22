@@ -565,6 +565,21 @@ h2.fs-title {
 		}
 
 }
+    
+/*.max-gif-size {
+max-width: 250px!important;
+margin: 0 auto!important;
+
+}*/
+    
+@media (max-width:991px) {
+                .max-gif-size {
+                margin: 0 auto!important;
+                max-width: 250px!important;
+               }
+    
+    
+}
 
 </style>
 
@@ -677,13 +692,14 @@ h2.fs-title {
 
 		</div>
 
-    <div class="row">
+    <div class="row" style="margin: -80px 0px 0px 0px!important;">
         <div class="col-md-10 col-md-push-1">
             <!--QUESTION 1: IMAGE ON THE RIGHT-->
             <div class="row">
 
               <div class="col-md-8">
-                  <p class="field__question">What eating schedule do you<br /> think is the healthiest?</p><br/>
+                  <div class="hidden-mobile"><br/><br/></div>
+                  <p class="field__question">What eating schedule do you think is the healthiest?</p><br/>
 
                   <input type="radio" id="1-1" name="Q1">
                   <label for="1-1">Skip breakfast and skip lunch, eat a big dinner and lots of snacks
@@ -703,7 +719,7 @@ h2.fs-title {
                 </div>
 
                 <div class="col-md-4">
-                  <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-02.gif">
+                  <img class="img-responsive max-gif-size" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-02.gif">
                 </div>
 
             </div>
@@ -712,6 +728,7 @@ h2.fs-title {
             <div class="row">
                 <!--Question 2 Radio Group -->
                 <div class="col-md-8 col-md-push-4">
+                  <div class="hidden-mobile"><br/><br/></div>
                     <p class="field__question">Which of the below statements you agree with most strongly?</p><br/>
 
                     <input type="radio" id="2-1" name="Q2">
@@ -728,8 +745,8 @@ h2.fs-title {
 
                 </div>
                 <!--Question 2 GIF -->
-                <div class=" col-md-4 col-md-pull-8">
-                    <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-03.gif">
+                <div class="col-md-4 col-md-pull-8">
+                    <img class="img-responsive max-gif-size" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-03.gif">
                 </div>
             </div>
 
@@ -737,7 +754,8 @@ h2.fs-title {
             <div class="row">
                 <!--Question 3 Radio Group -->
                 <div class="col-md-6">
-                       <p class="field__question">How many times a week should you <br />exercise to maintain a healthy lifestyle?</p><br/>
+                  <div class="hidden-mobile"><br/><br/></div>
+                       <p class="field__question">How many times a week should you exercise to maintain a healthy lifestyle?</p><br/>
 
                       <input type="radio" id="3-1" name="Q3">
                       <label for="3-1">2 – 4 intensive exercise sessions a week
@@ -758,7 +776,7 @@ h2.fs-title {
                 </div>
                 <!--Question 3 GIF -->
                 <div class="col-md-6">
-                    <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-04.gif">
+                    <img class="img-responsive max-gif-size" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-04.gif">
                 </div>
             </div>
 
@@ -768,6 +786,7 @@ h2.fs-title {
 
                 <!--Question 4 Radio Group -->
                 <div class="col-md-8 col-md-push-4">
+                  <div class="hidden-mobile"><br/><br/></div>
                     <p class="field__question">How much food should you eat a day?</p><br/>
                     <input type="radio" id="4-1" name="Q4">
                     <label for="4-1">Three similar sized meals and small snacks
@@ -787,7 +806,7 @@ h2.fs-title {
                 </div>
 
                 <div class=" col-md-4 col-md-pull-8">
-                    <img class="img-responsive" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-05.gif">
+                    <img class="img-responsive max-gif-size" src="https://www.jennycraig.com.au/statics/img/quiz-page/infographic-05.gif">
                 </div>
               </div>
 
@@ -797,12 +816,12 @@ h2.fs-title {
                   <div class="row" style="margin-bottom:0;">
                       <!--Thumbs title -->
                       <div style="border: 0px solid #ccc; min-width:325px; " class="col-md-10">
-                        <p class="field__question">Do you agree with the below statements in <br /> regards to healthy lifestyle and diet?</p><br/>
+                        <p class="field__question">Do you agree with the below statements in regards to healthy lifestyle and diet?</p><br/>
                      </div>
                   </div>
-
                   <div class="row"  style="margin-top:0; margin-bottom:0;">
                       <!--Question 5 Radio Group -->
+                      <center>
                       <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
                             <p style="text-align:center;" class="quiz-lite-font emoticon_field__question field__question">Should you avoid or cut down on carbs from your diet?</p>
                             <center>
@@ -816,17 +835,16 @@ h2.fs-title {
                                     <input type="radio" name="Q5" id="5-2">
                                 </label>
                               </div>
-                                </center>
-
+                          </center>
                       </div>
 
-                          <!--Question 6 Radio Group -->
 
+                          <!--Question 6 Radio Group -->
                       <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
-                        <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should eat <br/>sugar free diet?</p>
+
+                        <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should eat sugar free diet?</p>
                         <center>
                         <div class="radioGroupBelow">
-
                             <label for="6-1"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-upNEW.png">
                                 <input type="radio" name="Q6" id="6-1">
                             </label>
@@ -835,14 +853,17 @@ h2.fs-title {
                                 <input type="radio" name="Q6" id="6-2">
                             </label>
                           </div>
-                            </center>
+                      </center>
                       </div>
+                      </center>
                   </div>
 
                   <div class="row" style="margin-top:0;">
+                      <center>
+
                       <!--Question 7 Radio Group -->
                         <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
-                            <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should cut fat <br/>from your diet</p>
+                            <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should cut fat from your diet</p>
 
                             <center>
                                 <div class="radioGroupBelow">
@@ -857,6 +878,7 @@ h2.fs-title {
                                   </div>
                             </center>
                       </div>
+                      </center>
                   </div>
 
                   <div class="row" style="margin-top:0;">
@@ -897,7 +919,7 @@ h2.fs-title {
 									<!--Thumbs title -->
 									<div class="row" style="margin-top:0;margin-bottom:0;margin-left:-15px;margin-right:-15px;">
 											<div style=" border: 0px solid #ccc; " class="col-md-12">
-												 <p class="validation-fail-shake field__question">Tell us in 25 words or less what you do to maintain a healthy<br /> lifestyle and weight</p><br/>
+												 <p class="validation-fail-shake field__question">Tell us in 25 words or less what you do to maintain a healthy lifestyle and weight</p><br/>
 												 <textarea style="min-height:186px; resize:none;" class="validation-fail-shake" id="text_area" name="text_area" placeholder="Type your response here" pattern="[a-zA-Z][a-zA-Z0-9\s]*" required></textarea>
 													<span class="textarea-validation"></span>
 													<br/><br/>
@@ -1111,6 +1133,8 @@ var animating; //flag to prevent quick multi-click glitches
 			//Check if validation pattern matches
 			if (email_isValid === true && lastname_isValid === true && phone_isValid === true && names_isValid === true) {
 
+               
+
 				if (animating) return false;
 				animating = true;
 				//current_fs = $(this).parent();
@@ -1148,6 +1172,9 @@ var animating; //flag to prevent quick multi-click glitches
 					//this comes from the custom easing plugin
 					easing: 'easeInOutBack'
 				});
+
+                //scroll to the top of the page
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
 			}
 			//if not valid - launch the shaking animation
 			else {
