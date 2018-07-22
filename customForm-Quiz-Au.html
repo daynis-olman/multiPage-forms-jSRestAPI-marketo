@@ -450,6 +450,7 @@ h2.fs-title {
 }
 .send_email {
 	margin-top: 20px;
+
 }
 ::-webkit-input-placeholder {
 	/* Chrome/Opera/Safari */
@@ -488,13 +489,14 @@ h2.fs-title {
 	opacity: 0.74;
 }
 .send_email label {
-	font-size: 16px!important;
-	font-weight: normal !important;
-	font-style: normal !important;
-	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	color: #001927;
-	opacity: 0.74;
+    font-family: 'bebas_neuebold';
+    font-size: 19px;
+    color: #02395D;
+    letter-spacing: 0;
+    font-style: normal;
+    line-height: 15px!important;
 }
+
 .container .row {
 	margin: 50px 0px 0px 0px;
 }
@@ -577,8 +579,6 @@ margin: 0 auto!important;
                 margin: 0 auto!important;
                 max-width: 250px!important;
                }
-    
-    
 }
 
 </style>
@@ -677,7 +677,7 @@ margin: 0 auto!important;
 <div class="container">
 
 		<div class="row firstrow">
-				<div class="col-md-10 col-md-push-1">
+						<div class="col-md-10 col-md-push-1" style="margin-left:10px;">
 						<div class="row" style="margin-top:0px;">
 								<div class="col-md-6" >
 										<h1 class="quiz_heading">Do you know</h1>
@@ -881,26 +881,6 @@ margin: 0 auto!important;
                       </center>
                   </div>
 
-                  <div class="row" style="margin-top:0;">
-                      <!--Checkbox  -->
-
-                    <div class="send_email">
-                        <input class="quiz-primary-field" value="Yes" type="checkbox" id="form_consultant_contact" name="form_consultant_contact" value="Yes">
-                        <label for="form_consultant_contact" class="">I would like to hear from a Consultant about my weight loss journey</label>
-                    </div>
-
-                    <br/>
-
-                    <select hidden id="form_chosenCentreEmail" name="form_CTR_Email" title="Select your preferred centre" class="shadow-fields quiz-dropdown mktoField mktoHasWidth mktoValid" style="width: 300px;"><option value="">Select your preferred centre...</option><option value="Albury@jennycraig.com.au">Albury</option><option value="Bathurst@jennycraig.com.au">Bathurst</option><option value="blacktown@jennycraig.com.au">Blacktown</option><option value="bondi@jennycraig.com.au">Bondi</option><option value="burwood@jennycraig.com.au">Burwood</option><option value="campbelltown@jennycraig.com.au">Campbelltown</option><option value="castlehill@jennycraig.com.au">Castle Hill</option><option value="4102@jennycraigcentre.com">Casula</option><option value="chatswood@jennycraig.com.au">Chatswood</option><option value="deewhy@jennycraig.com.au">Dee Why</option><option value="Dubbo@jennycraig.com.au">Dubbo</option><option value="erina@jennycraig.com.au">Erina</option><option value="4101@jennycraigcentre.com">Goulburn</option><option value="kogarah@jennycraig.com.au">Kogarah</option><option value="kotara@jennycraig.com.au">Kotara</option><option value="maitland@jennycraig.com.au">Maitland</option><option value="miranda@jennycraig.com.au">Miranda</option><option value="morisset@jennycraig.com.au">Morisset</option><option value="Orange@jennycraig.com.au">Orange</option><option value="parramatta@jennycraig.com.au">Parramatta</option><option value="penrith@jennycraig.com.au">Penrith</option><option value="portmacquarie@jennycraig.com.au">Port Macquarie</option><option value="ryde@jennycraig.com.au">Ryde</option><option value="sydney@jennycraig.com.au">Sydney City</option><option value="tamworth@jennycraig.com.au">Tamworth</option><option value="Wagga@jennycraig.com.au">Wagga Wagga</option><option value="wollongong@jennycraig.com.au">Wollongong</option>
-                    </select>
-
-                      <!--TEAM FORM PLACEMENT-->
-
-                    <script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
-                    <form style="visibility: hidden;" id="mktoForm_2494"></form>
-
-                  </div>
-
 									<div class="row">
 										<!--Question 8 Text Area -->
 
@@ -921,6 +901,7 @@ margin: 0 auto!important;
 											<div style=" border: 0px solid #ccc; " class="col-md-12">
 												 <p class="validation-fail-shake field__question">Tell us in 25 words or less what you do to maintain a healthy lifestyle and weight</p><br/>
 												 <textarea style="min-height:186px; resize:none;" class="validation-fail-shake" id="text_area" name="text_area" placeholder="Type your response here" pattern="[a-zA-Z][a-zA-Z0-9\s]*" required></textarea>
+                                                
 													<span class="textarea-validation"></span>
 													<br/><br/>
 
@@ -934,18 +915,59 @@ margin: 0 auto!important;
 															<input type="text" id="Q6-answer" value="No answer"/>
 															<input type="text" id="Q7-answer" value="No answer"/>
 													</div>
-													<div>
-															<!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
-															<input id="AlternativeSubmitButton" type="button" name="submit" class="validation-fail-shake submit final-button" value="Send" />
-															<script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
-													</div>
 											</div>
-								 </div>
+                                    </div>
 							</div>
 						</div>
 				</div>
 		</div>
 </div>
+
+ <div class="container-fluid validation-fail-shake" style="background: #3EDAE3;">
+   <div class="container">
+        <div class="row" style="margin: 0px 0px 0px 0px;">
+            <div class="col-md-10 col-md-push-1">
+                 <div class="row" style="margin-top:0;">
+                      <!--Checkbox  -->
+
+                    <div class="send_email">
+                        <input class="quiz-primary-field" value="Yes" type="checkbox" id="form_consultant_contact" name="form_consultant_contact" value="Yes">
+                        <label for="form_consultant_contact" class="field__question">I would like to hear from a Consultant about my weight loss journey</label>
+                    </div>
+
+                    <br/>
+
+                    <select hidden id="form_chosenCentreEmail" name="form_CTR_Email" title="Select your preferred centre" class="shadow-fields quiz-dropdown mktoField mktoHasWidth mktoValid" style="width: 300px;"><option value="">Select your preferred centre...</option><option value="Albury@jennycraig.com.au">Albury</option><option value="Bathurst@jennycraig.com.au">Bathurst</option><option value="blacktown@jennycraig.com.au">Blacktown</option><option value="bondi@jennycraig.com.au">Bondi</option><option value="burwood@jennycraig.com.au">Burwood</option><option value="campbelltown@jennycraig.com.au">Campbelltown</option><option value="castlehill@jennycraig.com.au">Castle Hill</option><option value="4102@jennycraigcentre.com">Casula</option><option value="chatswood@jennycraig.com.au">Chatswood</option><option value="deewhy@jennycraig.com.au">Dee Why</option><option value="Dubbo@jennycraig.com.au">Dubbo</option><option value="erina@jennycraig.com.au">Erina</option><option value="4101@jennycraigcentre.com">Goulburn</option><option value="kogarah@jennycraig.com.au">Kogarah</option><option value="kotara@jennycraig.com.au">Kotara</option><option value="maitland@jennycraig.com.au">Maitland</option><option value="miranda@jennycraig.com.au">Miranda</option><option value="morisset@jennycraig.com.au">Morisset</option><option value="Orange@jennycraig.com.au">Orange</option><option value="parramatta@jennycraig.com.au">Parramatta</option><option value="penrith@jennycraig.com.au">Penrith</option><option value="portmacquarie@jennycraig.com.au">Port Macquarie</option><option value="ryde@jennycraig.com.au">Ryde</option><option value="sydney@jennycraig.com.au">Sydney City</option><option value="tamworth@jennycraig.com.au">Tamworth</option><option value="Wagga@jennycraig.com.au">Wagga Wagga</option><option value="wollongong@jennycraig.com.au">Wollongong</option>
+                    </select>
+
+                      <!--TEAM FORM PLACEMENT-->
+
+                    <script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
+                    <form style="visibility: hidden;" id="mktoForm_2494"></form>
+
+                  </div>
+            </div>
+        </div>
+   </div>
+</div>
+
+
+ <div class="container-fluid" style="background: #FAFAFA;">
+     <div class="container">
+        <div class="row" style="margin-top:0px;">
+            <div class="col-md-10 col-md-push-1">
+                <div>
+				    <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
+					<input id="AlternativeSubmitButton" type="button" name="submit" style="margin-bottom:0px;" class="validation-fail-shake submit final-button" value="Send" />
+					<script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
+				</div>
+                <p class="validation-fail-shake quiz-disclaimer"><sup>*</sup>Your information will be kept private in accordance with our <a href="/privacy">Privacy Policy</a><br>
+                 <sup>*</sup>Competition ends 11.59pm, 12 August 2018. <a href="/terms">Terms and conditions apply.</a></p>
+            </div>
+        </div>
+     </div>
+</div>
+
 
   </fieldset>
 </form>
