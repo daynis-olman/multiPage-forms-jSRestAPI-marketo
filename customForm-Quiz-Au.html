@@ -76,12 +76,13 @@ body {
 	color: #2C3E50;
 	/* font-size: 13px; */
 	height: 37px;
-	color: rgba(0, 25, 39, 0.59);
+	color: rgba(0, 0, 0, 0.78);
 	font-size: 16px!important;
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	opacity: 0.74;
+	opacity: 0.78;
+    margin-bottom: 17px;
 }
 .loading span {
 	position: relative;
@@ -140,7 +141,10 @@ body {
 /* FIELD VALIDATION CODE */
 
 .invalid {
-	outline-color: red;
+	outline-color: red!important;
+    border-width: 1px!important;
+    border-color: red!important;
+    opacity: 0.70!important;
 	/* also need animation and -moz-animation */
 	animation: shake .5s linear;
 	-webkit-animation: shake .5s linear;
@@ -167,7 +171,8 @@ input[type="text"] {
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	opacity: 0.74!important;;
+	opacity: 0.78!important;;
+    color: rgba(0, 0, 0, 0.78);
 
 }
 #msform textarea {
@@ -175,7 +180,8 @@ input[type="text"] {
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	opacity: 0.74!important;
+	opacity: 0.78!important;
+    color: rgba(0, 0, 0, 0.78);
 } 
 input[name=text_area]:valid~.textarea-validation::before {
 	content: "✓"!important;
@@ -278,7 +284,8 @@ input[type="checkbox"] {
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	opacity: 0.74;
+	opacity: 0.78;
+    color: rgba(0, 0, 0, 0.78);
 }
 .field__question {
 	font-family: 'bebas_neuebold';
@@ -454,21 +461,21 @@ h2.fs-title {
 }
 ::-webkit-input-placeholder {
 	/* Chrome/Opera/Safari */
-	color: rgba(0, 25, 39, 0.59);
+	color: rgba(0, 0, 0, 0.78);
 	font-size: 16px!important;
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	opacity: 0.74;
+	opacity: 0.78;
 }
 ::-moz-placeholder {
 	/* Firefox 19+ */
-	color: rgba(0, 25, 39, 0.59);
+	color: rgba(0, 0, 0, 0.78);
 	font-size: 16px!important;
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	opacity: 0.74;
+	opacity: 0.78;
 }
 :-ms-input-placeholder {
 	/* IE 10+ */
@@ -481,12 +488,12 @@ h2.fs-title {
 }
 :-moz-placeholder {
 	/* Firefox 18- */
-	color: rgba(0, 25, 39, 0.59);
+	color: rgba(0, 0, 0, 0.78);
 	font-size: 16px!important;
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-family: 'HelveticaNeueLTStd-Roman', Helvetica, Arial, sans-serif!important;
-	opacity: 0.74;
+	opacity: 0.78;
 }
 .send_email label {
     font-family: 'bebas_neuebold';
@@ -624,14 +631,14 @@ margin: 0 auto!important;
                 <h2 class="validation-fail-shake quiz-primary-field fs-title">Details</h2>
 
 
-                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_name" id="form_name" placeholder="First Name*" pattern="^([A-Za-z]+[,.]?[ ]?|[a-z]+['-]?)+$" required/>
+                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_name" id="form_name" placeholder="First Name*" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" required/>
 
                 <span class="name-validation"></span>
 
 
                 <br/>
 
-                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_lastname" id="form_lastname" placeholder="Last Name*" pattern="^([A-Za-z]+[,.]?[ ]?|[a-z]+['-]?)+$" required/>
+                <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_lastname" id="form_lastname" placeholder="Last Name*" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" required/>
 
                 <span class="lastname-validation"></span>
 
@@ -729,7 +736,7 @@ margin: 0 auto!important;
                 <!--Question 2 Radio Group -->
                 <div class="col-md-8 col-md-push-4">
                   <div class="hidden-mobile"><br/><br/></div>
-                    <p class="field__question">Which of the below statements you agree with most strongly?</p><br/>
+                    <p class="field__question">Which of the below statements do you agree with most strongly?</p><br/>
 
                     <input type="radio" id="2-1" name="Q2">
                     <label for="2-1">You should avoid high fat and high sugar foods all of the time to maintain a healthy diet
@@ -823,7 +830,7 @@ margin: 0 auto!important;
                       <!--Question 5 Radio Group -->
                       <center>
                       <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
-                            <p style="text-align:center;" class="quiz-lite-font emoticon_field__question field__question">Should you avoid or cut down on carbs from your diet?</p>
+                            <p style="text-align:center;" class="quiz-lite-font emoticon_field__question field__question">You should avoid or cut down on carbs from your diet</p>
                             <center>
                             <div class="radioGroupBelow">
 
@@ -842,7 +849,7 @@ margin: 0 auto!important;
                           <!--Question 6 Radio Group -->
                       <div class="quiz-rect-grey col-md-5 col-lg-5 col-xl-5">
 
-                        <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should eat sugar free diet?</p>
+                        <p style="text-align:center;" class="quiz-lite-font field__question emoticon_field__question">You should eat a sugar free diet</p>
                         <center>
                         <div class="radioGroupBelow">
                             <label for="6-1"> <img class="thumbsies-img" src="https://www.jennycraig.com.au/statics/img/quiz-page/thumbs-upNEW.png">
@@ -907,6 +914,8 @@ margin: 0 auto!important;
 
 													<!--Hidden input values - these are populated programmatically by event listeners -->
 													<div style="display:none;">
+												            <input type="text" id="SendComms-answer" value=""/>
+												            <input type="text" id="Callback-answer" value=""/>
 															<input type="text" id="Q1-answer" value="No answer"/>
 															<input type="text" id="Q2-answer" value="No answer"/>
 															<input type="text" id="Q3-answer" value="No answer"/>
@@ -943,7 +952,7 @@ margin: 0 auto!important;
                       <!--TEAM FORM PLACEMENT-->
 
                     <script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
-                    <form style="visibility: hidden;" id="mktoForm_2494"></form>
+            <!--    Hide to prevent double ups    <form style="visibility: hidden;" id="mktoForm_2494"></form> -->
 
                   </div>
             </div>
@@ -997,8 +1006,8 @@ function loadExternalForm() {
       /*form_ok*/  "survey07": document.getElementById('Q7-answer').value, //thumb3
       /*form_ok*/  "survey08": document.getElementById('text_area').value,
       /*form_ok*/  "State": document.getElementById('form_state').value,
-      /*form_ok*/  "mktoCheckbox_36599_0": document.getElementById('form_ok_comms').value, //comms?
-      /*form_ok*/  "mktoCheckbox_36692_0": document.getElementById('form_consultant_contact').value,
+      /*PENDING*/  "tempUnsub": document.getElementById('SendComms-answer').value,
+      /*PENDING*/  "Spare11Char": document.getElementById('Callback-answer').value, 
       /*form_ok*/  "chosenCentreEmail": document.getElementById('form_chosenCentreEmail').value
             });
 
@@ -1096,6 +1105,32 @@ var animating; //flag to prevent quick multi-click glitches
         $('#6-2').change(function(){if($(this).is(':checked')) {  $('#Q6-answer').val(aValue6_2);  } });
         $('#7-1').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_1);  } });
         $('#7-2').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_2);  } });
+        
+        
+         /* COMMS CHECKBOX LOGIC
+        If  checked, pass no values. If unchecked pass "Not unsub". Suggested by Michelle C */
+
+        $('#form_ok_comms').change(function(){
+
+            //if checked pass empty string
+            if($(this).is(':checked')) {  $('#SendComms-answer').val("Not Unsub");  }
+ 
+            //if unchecked pass "Not unsub"
+            else {  $('#SendComms-answer').val("Unsub");  } 
+        });
+
+
+        /* CONSULTANT CHECKBOX LOGIC
+        If  checked, pass no values. If unchecked pass "Not unsub". Suggested by Michelle C */
+
+        $('#form_consultant_contact').change(function(){
+
+            //if checked pass "Yes"
+            if($(this).is(':checked')) {  $('#Callback-answer').val("Yes");  }
+ 
+            //if unchecked pass empty string
+            else {  $('#Callback-answer').val("");  } 
+        });
 
 
         //On change in "state" selected value - replace list of states
