@@ -1289,11 +1289,23 @@ var animating; //flag to prevent quick multi-click glitches
 (function($) {
 	$(window).load(function() {
 		$(".submit").click(function() {
-			//Text area validation check before submit
-			//
-			var textarea_isValid = document.getElementById("text_area").checkValidity();
-			//Check if validation pattern matches
-			if (textarea_isValid === true) {
+			//Text area + Selected centre field validation check before submit
+
+            var centre_not_empty = "epic-fail-who-knows-will-see-shortly"
+			var textarea_isValid = document.getElementById("text_area").checkValidity(); 
+
+                //If callback has been requested, centre field must not be blank
+                if ($('#form_consultant_contact').is(":checked") &&
+                    $('#form_chosenCentreEmail').val()==="")
+ 
+                    { centre_not_empty = "epic-fail"; console.log("Epic fail has been registered!"); }
+                
+                //any other condition would pass validation
+                else { centre_not_empty = "pass"; console.log("Validation pass!") };
+
+            
+            //Check if validation pattern matches
+			if (textarea_isValid === true && centre_not_empty === "pass") {
 				//Submitting marketo form with RestAPI - AUSTRALIA FORM
 
 				//Start preloader animation and wait 3.5 seconds whilst it's playing
