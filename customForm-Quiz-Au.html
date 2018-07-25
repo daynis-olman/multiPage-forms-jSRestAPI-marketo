@@ -914,8 +914,6 @@ margin: 0 auto!important;
 
 													<!--Hidden input values - these are populated programmatically by event listeners -->
 													<div style="display:none;">
-												            <input type="text" id="SendComms-answer" value=""/>
-												            <input type="text" id="Callback-answer" value=""/>
 															<input type="text" id="Q1-answer" value="No answer"/>
 															<input type="text" id="Q2-answer" value="No answer"/>
 															<input type="text" id="Q3-answer" value="No answer"/>
@@ -952,7 +950,7 @@ margin: 0 auto!important;
                       <!--TEAM FORM PLACEMENT-->
 
                     <script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
-            <!--    Hide to prevent double ups    <form style="visibility: hidden;" id="mktoForm_2494"></form> -->
+                    <form style="visibility: hidden;" id="mktoForm_2494"></form>
 
                   </div>
             </div>
@@ -1006,8 +1004,8 @@ function loadExternalForm() {
       /*form_ok*/  "survey07": document.getElementById('Q7-answer').value, //thumb3
       /*form_ok*/  "survey08": document.getElementById('text_area').value,
       /*form_ok*/  "State": document.getElementById('form_state').value,
-      /*PENDING*/  "tempUnsub": document.getElementById('SendComms-answer').value,
-      /*PENDING*/  "Spare11Char": document.getElementById('Callback-answer').value, 
+      /*form_ok*/  "mktoCheckbox_36599_0": document.getElementById('form_ok_comms').value, //comms?
+      /*form_ok*/  "mktoCheckbox_36692_0": document.getElementById('form_consultant_contact').value,
       /*form_ok*/  "chosenCentreEmail": document.getElementById('form_chosenCentreEmail').value
             });
 
@@ -1105,32 +1103,6 @@ var animating; //flag to prevent quick multi-click glitches
         $('#6-2').change(function(){if($(this).is(':checked')) {  $('#Q6-answer').val(aValue6_2);  } });
         $('#7-1').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_1);  } });
         $('#7-2').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_2);  } });
-        
-        
-         /* COMMS CHECKBOX LOGIC
-        If  checked, pass no values. If unchecked pass "Not unsub". Suggested by Michelle C */
-
-        $('#form_ok_comms').change(function(){
-
-            //if checked pass empty string
-            if($(this).is(':checked')) {  $('#SendComms-answer').val("Not Unsub");  }
- 
-            //if unchecked pass "Not unsub"
-            else {  $('#SendComms-answer').val("Unsub");  } 
-        });
-
-
-        /* CONSULTANT CHECKBOX LOGIC
-        If  checked, pass no values. If unchecked pass "Not unsub". Suggested by Michelle C */
-
-        $('#form_consultant_contact').change(function(){
-
-            //if checked pass "Yes"
-            if($(this).is(':checked')) {  $('#Callback-answer').val("Yes");  }
- 
-            //if unchecked pass empty string
-            else {  $('#Callback-answer').val("");  } 
-        });
 
 
         //On change in "state" selected value - replace list of states
@@ -1174,12 +1146,6 @@ var animating; //flag to prevent quick multi-click glitches
         })
 
 
-		//Unhide centres if consultant's checkbox is checked
-		var checkbox = $("#form_consultant_contact");
-		var centreList = $("#form_chosenCentreEmail");
-		checkbox.click(function() {
-			centreList.attr("hidden", centreList.is(":checked"));
-		});
 		$(".next").click(function() {
 			//Validation for the first 3 fields of the form
 			var email_isValid = document.getElementById("form_email").checkValidity();
