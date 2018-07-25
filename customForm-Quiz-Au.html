@@ -1104,6 +1104,39 @@ var animating; //flag to prevent quick multi-click glitches
         $('#7-1').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_1);  } });
         $('#7-2').change(function(){if($(this).is(':checked')) {  $('#Q7-answer').val(aValue7_2);  } });
 
+        
+        
+        /* COMMS CHECKBOX LOGIC
+        If  checked, pass no values. If unchecked pass "Not unsub". Suggested by Michelle C */
+
+        $('#form_ok_comms').change(function(){
+
+            //if checked pass empty string
+            if($(this).is(':checked')) {  $('#SendComms-answer').val("Not Unsub");  }
+ 
+            //if unchecked pass "Not unsub"
+            else {  $('#SendComms-answer').val("Unsub");  } 
+        });
+
+
+        /* CONSULTANT CHECKBOX LOGIC */
+
+        $('#form_consultant_contact').change(function(){
+        
+            //if checked pass "Yes", Show Centres, Enable centre validation
+            if ($(this).is(":checked")) {
+            $('#form_chosenCentreEmail').show();
+            $('#Callback-answer').val("Yes"); 
+            }
+
+            //if unchecked pass empty string, Hide Centres, Disable centre validation
+            if ($(this).is(":not(:checked)")) {
+            $('#form_chosenCentreEmail').hide();
+            $('#Callback-answer').val("");
+            }               
+        
+        });
+
 
         //On change in "state" selected value - replace list of states
 
@@ -1145,7 +1178,7 @@ var animating; //flag to prevent quick multi-click glitches
 
         })
 
-
+        
 		$(".next").click(function() {
 			//Validation for the first 3 fields of the form
 			var email_isValid = document.getElementById("form_email").checkValidity();
