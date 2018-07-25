@@ -645,7 +645,7 @@ margin: 0 auto!important;
 
                 <br/>
 
-                    <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_phone" id="form_phone" placeholder="Phone*" pattern="^[0-9]{10}$" required/>
+                    <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_phone" id="form_phone" placeholder="Phone*" pattern="^[0-9]{7-10}$" required/>
 
                     <span class="phone-validation"></span>
 
@@ -914,6 +914,8 @@ margin: 0 auto!important;
 
 													<!--Hidden input values - these are populated programmatically by event listeners -->
 													<div style="display:none;">
+                                                            <input type="text" id="SendComms-answer" value=""/>
+												            <input type="text" id="Callback-answer" value=""/>
 															<input type="text" id="Q1-answer" value="No answer"/>
 															<input type="text" id="Q2-answer" value="No answer"/>
 															<input type="text" id="Q3-answer" value="No answer"/>
@@ -950,7 +952,6 @@ margin: 0 auto!important;
                       <!--TEAM FORM PLACEMENT-->
 
                     <script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
-                    <form style="visibility: hidden;" id="mktoForm_2494"></form>
 
                   </div>
             </div>
@@ -1006,8 +1007,10 @@ function loadExternalForm() {
       /*form_ok*/  "State": document.getElementById('form_state').value,
       /*form_ok*/  "mktoCheckbox_36599_0": document.getElementById('form_ok_comms').value, //comms?
       /*form_ok*/  "mktoCheckbox_36692_0": document.getElementById('form_consultant_contact').value,
+      /*PENDING*/  "spare18Varchar": document.getElementById('Callback-answer').value, 
       /*form_ok*/  "chosenCentreEmail": document.getElementById('form_chosenCentreEmail').value
-            });
+      
+      });
 
 
         // Submit the form
@@ -1032,9 +1035,6 @@ var animating; //flag to prevent quick multi-click glitches
 // Wrapping to avoid jQuery 'not-a-function' error
 (function($) {
 	$(window).load(function() {
-
-
-
 
     var aValue1_1 = 
     "1. What eating schedule is healthiest? Skip breakfast and skip lunch, eat a big dinner and lots of snacks ;";
