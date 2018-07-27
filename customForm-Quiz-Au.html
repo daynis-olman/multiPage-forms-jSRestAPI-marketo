@@ -645,7 +645,7 @@ margin: 0 auto!important;
 
                 <br/>
 
-                    <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_phone" id="form_phone" placeholder="Phone*" pattern="^[0-9]{7-10}$" required/>
+                    <input class="validation-fail-shake quiz-primary-field shadow-fields" type="text" name="form_phone" id="form_phone" placeholder="Phone*" pattern="^[0-9]{10}$" required/>
 
                     <span class="phone-validation"></span>
 
@@ -951,7 +951,7 @@ margin: 0 auto!important;
 
                       <!--TEAM FORM PLACEMENT-->
 
-                    <script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
+                   <script src="//app-abm.marketo.com/js/forms2/js/forms2.min.js"></script>
 
                   </div>
             </div>
@@ -966,8 +966,7 @@ margin: 0 auto!important;
             <div class="col-md-10 col-md-push-1">
                 <div>
 				    <!--<input type="button" name="previous" class="previous action-button" value="Previous" />-->
-					<input id="AlternativeSubmitButton" type="button" name="submit" style="margin-bottom:0px;" class="validation-fail-shake submit final-button" value="Send" />
-					<script src="//app-abm.marketo.com/js/forms2/js/forms2.js"></script>
+					<input id="AlternativeSubmitButton" type="button" name="" style="margin-bottom:0px;" class="validation-fail-shake final-button" value="Send" />
 				</div>
                 <p class="validation-fail-shake quiz-disclaimer"><sup>*</sup>Your information will be kept private in accordance with our <a href="/privacy">Privacy Policy</a><br>
                  <sup>*</sup>Competition ends 11.59pm, 12 August 2018. <a href="/terms">Terms and conditions apply.</a></p>
@@ -987,14 +986,19 @@ margin: 0 auto!important;
 
 //Load and submit external form
 function loadExternalForm() {
+    
+    console.log("Loaded form ! !!");
+
     MktoForms2.loadForm("//app-abm.marketo.com", "139-RET-710", 2494, function(form) {
+
+        console.log("Marketo API started! !!");
+
 
       form.vals({
       /*form_ok*/  "FirstName": document.querySelector("input[name='form_name']").value,
       /*form_ok*/  "LastName": document.querySelector("input[name='form_lastname']").value,
       /*form_ok*/  "Email": document.querySelector("input[name='form_email']").value,
       /*form_ok*/  "MobilePhone": document.getElementById('form_phone').value,
-      /*form_ok*/  "Email": document.querySelector("input[name='form_email']").value,
       /*form_ok*/  "ageGroup": document.getElementById('form_agegroup').value,
       /*form_ok*/  "survey01": document.getElementById('Q1-answer').value,
       /*form_ok*/  "survey02": document.getElementById('Q2-answer').value,
@@ -1008,21 +1012,24 @@ function loadExternalForm() {
       /*form_ok*/  "mktoCheckbox_36599_0": document.getElementById('form_ok_comms').value, //comms?
       /*form_ok*/  "mktoCheckbox_36692_0": document.getElementById('form_consultant_contact').value,
       /*PENDING*/  "spare18Varchar": document.getElementById('Callback-answer').value, 
+      /*PENDING*/  "tempUnsub": document.getElementById('SendComms-answer').value,
       /*form_ok*/  "chosenCentreEmail": document.getElementById('form_chosenCentreEmail').value
-      
+      //SendComms-answer
       });
 
 
-        // Submit the form
-        MktoForms2.whenReady(function (form) {form.submit();});
 
-        // Redirect to thank you page on successful submission
-        form.onSuccess(function(values, followUpUrl) {
-        location.href = "https://www.jennycraig.com.au/healthy-quiz-thank-you";
-        // Return false to prevent the submission handler continuing with its own processing
-        return false;
-        });
+    // Submit the form
+    form.submit();
+
+
+    // Redirect to thank you page on successful submission
+    form.onSuccess(function(values, followUpUrl) {
+    location.href = "https://www.jennycraig.com.au/healthy-quiz-thank-you";
+    // Return false to prevent the submission handler continuing with its own processing
+    return false;
     });
+  });
 }
 
 
@@ -1288,7 +1295,7 @@ var animating; //flag to prevent quick multi-click glitches
 })(jQuery);
 (function($) {
 	$(window).load(function() {
-		$(".submit").click(function() {
+		$("#AlternativeSubmitButton").click(function() {
 			//Text area + Selected centre field validation check before submit
 
             var centre_not_empty = "epic-fail-who-knows-will-see-shortly"
