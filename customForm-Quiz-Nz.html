@@ -1010,7 +1010,7 @@ function loadExternalForm() {
 
 
       // Submit the form
-      MktoForms2.whenReady(function (form) {form.submit();});
+      form.submit();
 
       // Redirect to thank you page on successful submission
       form.onSuccess(function(values, followUpUrl) {
