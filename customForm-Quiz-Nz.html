@@ -1184,9 +1184,17 @@ var animating; //flag to prevent quick multi-click glitches
 			var phone_isValid = document.getElementById("form_phone").checkValidity();
 			var names_isValid = document.getElementById("form_name").checkValidity();
 			var lastname_isValid = document.getElementById("form_lastname").checkValidity();
+            
+            //Validation for state and age dropdown 
+            var age_value
+            if ($('#form_agegroup').val()==="") { age_value = false; } else {age_value = true;}
+
+
 
 			//Check if validation pattern matches
-			if (email_isValid === true && lastname_isValid === true && phone_isValid === true && names_isValid === true) {
+			if (email_isValid === true && lastname_isValid === true && phone_isValid === true && names_isValid === true && age_value === true ) {
+
+                // on validation pass
 				if (animating) return false;
 				animating = true;
 				//current_fs = $(this).parent();
