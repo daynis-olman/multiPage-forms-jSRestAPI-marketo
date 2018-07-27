@@ -671,8 +671,8 @@ margin: 0 auto!important;
                     <input id="next-btn" type="button" name="next" class="validation-fail-shake quiz-primary-field next action-button" value="Enter now"/>
                 </div>
 
-                <p class="validation-fail-shake quiz-disclaimer"><sup>*</sup>Your information will be kept private in accordance with our <a href="/privacy">Privacy Policy</a><br/>
-                    <sup>*</sup>Competition ends 11.59pm, 12 August 2018. <a href=/terms>Terms and conditions apply.</a></p>
+                <p class="validation-fail-shake quiz-disclaimer"><sup>*</sup>Your information will be kept private in accordance with our <a target="_blank" href="/privacy">Privacy Policy</a><br/>
+                    <sup>*</sup>Competition ends 11.59pm, 12 August 2018. <a target="_blank" href=/terms>Terms and conditions apply.</a></p>
             </div>
       </div>
       </div>
@@ -1209,7 +1209,6 @@ var animating; //flag to prevent quick multi-click glitches
 			//Check if validation pattern matches
 			if (email_isValid === true && lastname_isValid === true && phone_isValid === true && names_isValid === true && state_value === true && age_value === true) {               
 
-				if (animating) return false;
 				if (animating) return false;
 				animating = true;
 				//current_fs = $(this).parent();
