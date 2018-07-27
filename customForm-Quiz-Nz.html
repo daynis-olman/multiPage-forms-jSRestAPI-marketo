@@ -671,8 +671,8 @@ h2.fs-title {
                     <input id="next-btn" type="button" name="next" class="validation-fail-shake quiz-primary-field next action-button" value="Enter now"/>
                 </div>
 
-                <p class="validation-fail-shake quiz-disclaimer"><sup>*</sup>Your information will be kept private in accordance with our <a href="/privacy">Privacy Policy</a><br/>
-                    <sup>*</sup>Competition ends 11.59pm, 12 August 2018. <a href=/terms>Terms and conditions apply.</a></p>
+                <p class="validation-fail-shake quiz-disclaimer"><sup>*</sup>Your information will be kept private in accordance with our <a target="_blank" href="/privacy">Privacy Policy</a><br/>
+                    <sup>*</sup>Competition ends 11.59pm, 12 August 2018. <a target="_blank" href=/terms>Terms and conditions apply.</a></p>
             </div>
       </div>
       </div>
@@ -1132,50 +1132,6 @@ var animating; //flag to prevent quick multi-click glitches
             }               
         
         });
-
-        
-/*AUSTRALIA ONLY
-
-        //On change in "state" selected value - replace list of states
-    $( "#form_state" ).change(function() {
-
-        var state = this.value;
-
-
-        //Swap state values dropdown: depending on which state was selected
-
-        if (state==="NSW") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="Albury@jennycraig.co.nz">Albury</option><option value="Bathurst@jennycraig.co.nz">Bathurst</option><option value="blacktown@jennycraig.co.nz">Blacktown</option><option value="bondi@jennycraig.co.nz">Bondi</option><option value="burwood@jennycraig.co.nz">Burwood</option><option value="campbelltown@jennycraig.co.nz">Campbelltown</option><option value="castlehill@jennycraig.co.nz">Castle Hill</option><option value="4102@jennycraigcentre.com">Casula</option><option value="chatswood@jennycraig.co.nz">Chatswood</option><option value="deewhy@jennycraig.co.nz">Dee Why</option><option value="Dubbo@jennycraig.co.nz">Dubbo</option><option value="erina@jennycraig.co.nz">Erina</option><option value="4101@jennycraigcentre.com">Goulburn</option><option value="kogarah@jennycraig.co.nz">Kogarah</option><option value="kotara@jennycraig.co.nz">Kotara</option><option value="maitland@jennycraig.co.nz">Maitland</option><option value="miranda@jennycraig.co.nz">Miranda</option><option value="morisset@jennycraig.co.nz">Morisset</option><option value="Orange@jennycraig.co.nz">Orange</option><option value="parramatta@jennycraig.co.nz">Parramatta</option><option value="penrith@jennycraig.co.nz">Penrith</option><option value="portmacquarie@jennycraig.co.nz">Port Macquarie</option><option value="ryde@jennycraig.co.nz">Ryde</option><option value="sydney@jennycraig.co.nz">Sydney City</option><option value="tamworth@jennycraig.co.nz">Tamworth</option><option value="Wagga@jennycraig.co.nz">Wagga Wagga</option><option value="wollongong@jennycraig.co.nz">Wollongong</option>');
-        }
-
-        if (state==="NT") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="darwin@jennycraig.co.nz">Darwin</option>');
-        }
-
-        if (state==="QLD") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="booval@jennycraig.co.nz">Booval</option><option value="Bundaberg@jennycraig.co.nz">Bundaberg</option><option value="cairns@jennycraig.co.nz">Cairns</option><option value="carina@jennycraig.co.nz">Carina</option><option value="chermside@jennycraig.co.nz">Chermside</option><option value="Emerald@jennycraig.co.nz">Emerald</option><option value="Gladstone@jennycraig.co.nz">Gladstone</option><option value="helensvale@jennycraig.co.nz">Helensvale</option><option value="HerveyBay@jennycraig.co.nz">Hervey Bay</option><option value="mackay@jennycraig.co.nz">Mackay</option><option value="maroochydore@jennycraig.co.nz">Maroochydore</option><option value="morayfield@jennycraig.co.nz">Morayfield</option><option value="robina@jennycraig.co.nz">Robina</option><option value="Rockhampton@jennycraig.co.nz">Rockhampton</option><option value="springwood@jennycraig.co.nz">Springwood</option><option value="strathpine@jennycraig.co.nz">Strathpine</option><option value="taringa@jennycraig.co.nz">Taringa</option><option value="toowoomba@jennycraig.co.nz">Toowoomba</option><option value="townsville@jennycraig.co.nz">Townsville</option>');
-        }
-
-        if (state==="SA") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="Felixstow@jennycraig.co.nz">Felixstow</option><option value="Marion@jennycraig.co.nz">Marion</option><option value="Modbury@jennycraig.co.nz">Modbury</option><option value="MorphettVale@jennycraig.co.nz">Morphett Vale</option><option value="Payneham@jennycraig.co.nz">Payneham</option><option value="Salisbury@jennycraig.co.nz">Salisbury</option><option value="Unley@jennycraig.co.nz">Unley</option><option value="WestLakes@jennycraig.co.nz">West Lakes</option>');
-        }
-
-        if (state==="TAS") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="burnie@jennycraig.co.nz">Burnie</option><option value="hobart@jennycraig.co.nz">Hobart</option><option value="launceston@jennycraig.co.nz">Launceston</option>');
-        }
-
-        if (state==="VIC") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="ballarat@jennycraig.co.nz">Ballarat</option><option value="bendigo@jennycraig.co.nz">Bendigo</option><option value="cheltenham@jennycraig.co.nz">Cheltenham</option><option value="cranbourne@jennycraig.co.nz">Cranbourne</option><option value="doncaster@jennycraig.co.nz">Doncaster</option><option value="frankston@jennycraig.co.nz">Frankston</option><option value="geelong@jennycraig.co.nz">Geelong</option><option value="greensborough@jennycraig.co.nz">Greensborough</option><option value="horsham@jennycraig.co.nz">Horsham</option><option value="knox@jennycraig.co.nz">Knox</option><option value="mildura@jennycraig.co.nz">Mildura</option><option value="mooneeponds@jennycraig.co.nz">Moonee Ponds</option><option value="mtwaverley@jennycraig.co.nz">Mt. Waverley</option><option value="northcote@jennycraig.co.nz">Northcote</option><option value="pakenham@jennycraig.co.nz">Pakenham</option><option value="prahran@jennycraig.co.nz">Prahran</option><option value="ringwood@jennycraig.co.nz">Ringwood</option><option value="shepparton@jennycraig.co.nz">Shepparton</option><option value="traralgon@jennycraig.co.nz">Traralgon</option><option value="Wangaratta@jennycraig.co.nz">Wangaratta</option><option value="warrnambool@jennycraig.co.nz">Warrnambool</option><option value="werribee@jennycraig.co.nz">Werribee</option>');
-        }
-
-        if (state==="WA") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="bunbury@jennycraig.co.nz">Bunbury</option><option value="cannington@jennycraig.co.nz">Cannington</option><option value="fremantle@jennycraig.co.nz">Fremantle</option><option value="joondalup@jennycraig.co.nz">Joondalup</option><option value="mandurah@jennycraig.co.nz">Mandurah</option><option value="midland@jennycraig.co.nz">Midland</option><option value="morley@jennycraig.co.nz">Morley</option><option value="rockingham@jennycraig.co.nz">Rockingham</option><option value="stirling@jennycraig.co.nz">Stirling</option>');
-        }
-            console.log("Completed swap values");
-
-        })
-        
-        END AUSTRALIA ONLY */
 
 
 		$(".next").click(function() {
