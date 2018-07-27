@@ -913,7 +913,7 @@ h2.fs-title {
 
 													<!--Hidden input values - these are populated programmatically by event listeners -->
 													<div style="display:none;">
-												        <input type="text" id="SendComms-answer" value=""/>
+												        <input type="text" id="SendComms-answer" value="Not Unsub"/>
 												        <input type="text" id="Callback-answer" value=""/>
 												        <input type="text" id="Q1-answer" value="No answer"/>
 												        <input type="text" id="Q2-answer" value="No answer"/>
@@ -991,8 +991,9 @@ function loadExternalForm() {
       /*form_ok*/  "FirstName": document.querySelector("input[name='form_name']").value,
       /*form_ok*/  "LastName": document.querySelector("input[name='form_lastname']").value,
       /*form_ok*/  "Email": document.querySelector("input[name='form_email']").value,
-      /*form_ok*/  "nZPhone": document.getElementById('form_phone').value,
+      /*form_ok*/  "MobilePhone": document.getElementById('form_phone').value,
       /*form_ok*/  "ageGroup": document.getElementById('form_agegroup').value,
+      /*PENDING*/  "tempUnsub": document.getElementById('SendComms-answer').value,
       /*form_ok*/  "survey01": document.getElementById('Q1-answer').value,
       /*form_ok*/  "survey02": document.getElementById('Q2-answer').value,
       /*form_ok*/  "survey03": document.getElementById('Q3-answer').value,
@@ -1001,9 +1002,7 @@ function loadExternalForm() {
       /*form_ok*/  "survey06": document.getElementById('Q6-answer').value, //thumb2
       /*form_ok*/  "survey07": document.getElementById('Q7-answer').value, //thumb3
       /*form_ok*/  "survey08": document.getElementById('text_area').value,
-      /*form_ok*/  //"State": document.getElementById('form_state').value,
-      /*PENDING*/  "tempUnsub": document.getElementById('SendComms-answer').value,
-      /*PENDING*/  "spare18Varchar": document.getElementById('Callback-answer').value, 
+      /*form_ok*/  "spare18Varchar": document.getElementById('Callback-answer').value, 
       /*form_ok*/  "chosenCentreEmail": document.getElementById('form_chosenCentreEmail').value
       });
 
