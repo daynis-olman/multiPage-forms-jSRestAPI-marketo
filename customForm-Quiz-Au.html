@@ -1154,6 +1154,7 @@ var animating; //flag to prevent quick multi-click glitches
 
         //Swap state values dropdown: depending on which state was selected
 
+            
         if (state==="NSW") {
             $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="Albury@jennycraig.com.au">Albury</option><option value="Bathurst@jennycraig.com.au">Bathurst</option><option value="blacktown@jennycraig.com.au">Blacktown</option><option value="bondi@jennycraig.com.au">Bondi</option><option value="burwood@jennycraig.com.au">Burwood</option><option value="campbelltown@jennycraig.com.au">Campbelltown</option><option value="castlehill@jennycraig.com.au">Castle Hill</option><option value="4102@jennycraigcentre.com">Casula</option><option value="chatswood@jennycraig.com.au">Chatswood</option><option value="deewhy@jennycraig.com.au">Dee Why</option><option value="Dubbo@jennycraig.com.au">Dubbo</option><option value="erina@jennycraig.com.au">Erina</option><option value="4101@jennycraigcentre.com">Goulburn</option><option value="kogarah@jennycraig.com.au">Kogarah</option><option value="kotara@jennycraig.com.au">Kotara</option><option value="maitland@jennycraig.com.au">Maitland</option><option value="miranda@jennycraig.com.au">Miranda</option><option value="morisset@jennycraig.com.au">Morisset</option><option value="Orange@jennycraig.com.au">Orange</option><option value="parramatta@jennycraig.com.au">Parramatta</option><option value="penrith@jennycraig.com.au">Penrith</option><option value="portmacquarie@jennycraig.com.au">Port Macquarie</option><option value="ryde@jennycraig.com.au">Ryde</option><option value="sydney@jennycraig.com.au">Sydney City</option><option value="tamworth@jennycraig.com.au">Tamworth</option><option value="Wagga@jennycraig.com.au">Wagga Wagga</option><option value="wollongong@jennycraig.com.au">Wollongong</option>');
         }
@@ -1179,9 +1180,15 @@ var animating; //flag to prevent quick multi-click glitches
         }
 
         if (state==="WA") {
-            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="bunbury@jennycraig.com.au">Bunbury</option><option value="cannington@jennycraig.com.au">Cannington</option><option value="fremantle@jennycraig.com.au">Fremantle</option><option value="joondalup@jennycraig.com.au">Joondalup</option><option value="mandurah@jennycraig.com.au">Mandurah</option><option value="midland@jennycraig.com.au">Midland</option><option value="morley@jennycraig.com.au">Morley</option><option value="rockingham@jennycraig.com.au">Rockingham</option><option value="stirling@jennycraig.com.au">Stirling</option>');
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="bunbury@jennycraig.com.au">Bunbury</option><option value="cannington@jennycraig.com.au">Cannington</option><option value="fremantle@jennycraig.com.au">Fremantle</option><option value="joondalup@jennycraig.com.au">Joondalup</option><option value="mandurah@jennycraig.com.au">Mandurah</option><option value="midland@jennycraig.com.au">Midland</option><option value="morley@jennycraig.com.au">Morley</option><option value="rockingham@jennycraig.com.au">Rockingham</option><option value="s@jennycraig.com.au">Stirling</option>');
         }
-            console.log("Completed swap values");
+        
+        if (state==="ACT") {
+
+            $("#form_chosenCentreEmail").html('<option value="">Select your preferred centre...</option><option value="belconnen@jennycraig.com.au">Belconnen</option><option value="tuggeranong@jennycraig.com.au">Tuggeranong</option>');
+        }
+
+        
 
         })
 
